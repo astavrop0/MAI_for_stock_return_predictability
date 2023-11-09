@@ -15,7 +15,7 @@ Project Organization
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    │
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
@@ -32,25 +32,37 @@ Project Organization
     │                         generated with `pip freeze > requirements.txt`
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
-    ├── src                <- Source code for use in this project.
-    │   ├── __init__.py    <- Makes src a Python module
-    │   │
-    │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── features       <- Scripts to turn raw data into features for modeling
-    │   │   └── build_features.py
-    │   │
-    │   ├── models         <- Scripts to train models and then use trained models to make
-    │   │   │                 predictions
-    │   │   ├── predict_model.py
-    │   │   └── train_model.py
-    │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
-    │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
+    └── src                <- Source code for use in this project.
+        ├── __init__.py    <- Makes src a Python module
+        │
+        ├── data           <- Scripts to download or generate data
+        │   └── make_dataset.py
+        │
+        ├── features       <- Scripts to turn raw data into features for modeling
+        │   └── build_features.py
+        │
+        ├── models         <- Scripts to train models and then use trained models to make
+        │   │                 predictions
+        │   ├── predict_model.py
+        │   └── train_model.py
+        │
+        └── visualization  <- Scripts to create exploratory and results oriented visualizations
+           └── visualize.py
+    
+  
+Resources
+------------
 
+Adlai Fisher, Charles Martineau, Jinfei Sheng, Macroeconomic Attention and Announcement Risk Premia, The Review of Financial Studies, Volume 35, Issue 11, November 2022, Pages 5057–5093, https://doi.org/10.1093/rfs/hhac011
+
+Feng Ma, Xinjie Lu, Jia Liu, Dengshi Huang,
+Macroeconomic attention and stock market return predictability,
+Journal of International Financial Markets, Institutions and Money, Volume 79, 2022, 101603, ISSN 1042-4431, https://doi.org/10.1016/j.intfin.2022.101603
+
+Contributors
+------------
+
+Aaron Arauz Baumender (@Baumender11), Michael Geiser (@...), Andreas Stavropoulos (@astavrop0), Zhiyi Tang (@...)
 
 --------
 
