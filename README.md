@@ -7,7 +7,6 @@ Project Organization
 ------------
 
     ├── LICENSE
-    ├── Makefile           <- Makefile with commands like `make data` or `make train`
     ├── README.md          <- The top-level README for developers using this project.
     ├── data
     │   ├── external       <- Data from third party sources.
@@ -62,7 +61,7 @@ Journal of International Financial Markets, Institutions and Money, Volume 79, 2
 Contributors
 ------------
 
-Aaron Arauz Baumender (@Baumender11), Michael Geiser (@...), Andreas Stavropoulos (@astavrop0), Zhiyi Tang (@...)
+Aaron Arauz Baumender (@Baumender11), Michael Geiser (@mikegeiser), Andreas Stavropoulos (@astavrop0), Zhiyi Tang (@...)
 
 --------
 
