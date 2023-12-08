@@ -22,7 +22,8 @@ Project Organization
     │
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment
     │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+    ├── Dockerfile
+    │
     └── src                <- Source code for use in this project.
         ├── __init__.py    <- Makes src a Python module
         │
