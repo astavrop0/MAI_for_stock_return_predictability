@@ -59,7 +59,14 @@ Description of Steps
 
 - Compare results with current research
 
+Data 
+------------
 
+Macroeconomic Attention Indices (MAI) data are obtained from [charlesmartineau/mai_rfs](https://github.com/charlesmartineau/mai_rfs) Github repository.
+
+MEF data are obtained from the [powder197/Goyal-and-Welch-2008-](https://github.com/powder197/Goyal-and-Welch-2008-/tree/master) Github repository.
+
+S&P500 proces are obtained from [Yahoo Finance](https://finance.yahoo.com).
   
 Resources
 ------------
