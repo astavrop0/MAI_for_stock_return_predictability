@@ -38,6 +38,28 @@ Project Organization
         └── visualization  <- Scripts to create exploratory and results oriented visualizations
            └── visualize.py
     
+Description of Steps 
+------------
+
+- Preparation of  a folder structure, using the cookiecutter Data Science template
+
+- Downloaded of raw data 
+
+- Create upstream and downstream functions
+
+- Generation of tables which can be directly imported to Latex 
+
+- Connect Overleaf to Github (all Overleaf Files can be directly accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c))
+
+- Use R Shiny and Plotly to create interactive graphs in order to do robustness checks (date range, frequency, results)
+
+- Ensure reproducibility by adding Dockerfile 
+
+- Analysis and interpretation of findings
+
+- Compare results with current research
+
+
   
 Resources
 ------------
