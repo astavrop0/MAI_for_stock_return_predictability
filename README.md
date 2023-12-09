@@ -35,8 +35,8 @@ Project Organization
         │   ├── linear_model.py
         │   └── NN_model.py
         │
-        └── visualization  <- Scripts to create exploratory and results oriented visualizations
-           └── visualize.py
+        └── shiny  <- Scripts to create exploratory and results oriented visualizations
+           └── 'shiny'.py
     
 Description of Steps 
 ------------
