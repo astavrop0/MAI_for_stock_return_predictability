@@ -43,7 +43,7 @@ Description of Steps
 
 - Preparation of  a folder structure, using the cookiecutter Data Science template
 
-- Downloaded of raw data 
+- Downloaded of raw data [see below]
 
 - Create upstream and downstream functions
 
@@ -51,7 +51,7 @@ Description of Steps
 
 - Connect Overleaf to Github (all Overleaf Files can be directly accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c))
 
-- Use R Shiny and Plotly to create interactive graphs in order to do robustness checks (date range, frequency, results)
+- Use R Shiny and Plotly to create interactive graphs in order to do robustness checks (data frequency, data features, date range, visualization) [here] (https://baumender11.shinyapps.io/Alpha/)
 
 - Ensure reproducibility by adding Dockerfile 
 
