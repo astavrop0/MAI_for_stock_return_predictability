@@ -51,7 +51,7 @@ Description of Steps
 
 - Connect Overleaf to Github (all Overleaf Files can be directly accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c))
 
-- Use R Shiny and Plotly to create interactive graphs in order to do robustness checks (data frequency, data features, date range, visualization) [here] (https://baumender11.shinyapps.io/Alpha/)
+- Use R Shiny and Plotly to create interactive graphs in order to do robustness checks (data frequency, data features, date range, visualization) [here](https://baumender11.shinyapps.io/Alpha/)
 
 - Ensure reproducibility by adding Dockerfile 
 
