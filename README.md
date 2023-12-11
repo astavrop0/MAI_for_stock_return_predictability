@@ -33,10 +33,14 @@ Project Organization
         ├── models         <- Scripts to train models and make predictions
         │   │                 
         │   ├── linear_model.py
+        │   │
         │   └── NN_model.py
         │
-        └── shiny  <- Scripts to create exploratory and results oriented visualizations
-           └── 'shiny'.py
+        └── shiny  <- Code and data to create R shiny app for visualizations
+           │
+           ├── shiny_data
+           │
+           └── stock_return_prediction_app.R
     
 Description of Steps 
 ------------
