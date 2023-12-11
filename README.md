@@ -37,10 +37,10 @@ Project Organization
         │   └── NN_model.py
         │
         └── shiny  <- Code and data to create R shiny app for visualizations
-           │
-           ├── shiny_data
-           │
-           └── stock_return_prediction_app.R
+            │
+            ├── shiny_data
+            │
+            └── stock_return_prediction_app.R
     
 Description of Steps 
 ------------
