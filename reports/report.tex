@@ -1,0 +1,361 @@
+\documentclass{article}
+
+\usepackage{authblk}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{amsmath}  % Add the amsmath package
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\providecommand{\keywords}[1]{\small \textbf{Keywords:} #1}
+
+\title{The Role of Macroeconomic Factors and Macro Attention Indices in Forecasting Equity Risk Premia}
+\author{Aaron Arauz Baumender (22-748-388) 
+\\  Michael Adrian Geiser Pasquel (22-738-645) 
+\\ Zhiyi Tang (21-746-763) 
+\\ Andreas Stavropoulos (22-739-965)}
+\affil{University of Zurich}
+\date{December 2023}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract} 
+\noindent In demonstration of our proficiency in digital tools acquired through the course "Digital Tools for Finance," we submit a concise paper wherein we conduct equity risk premia forecasts (S\&P 500). Our analysis focuses on the utilization of macroeconomic features, particularly emphasizing macroeconomic factors (MEF) and macroeconomic attention indices (MAI).
+\end{abstract}
+
+\hfill
+
+\noindent \keywords{Equity risk premia; Forecast; Macroeconomic features; Macroeconomic factors; Macro economic attention indices}\\
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+
+\section{Introduction (checked)}
+
+Equity risk premia, representing the excess return investors expect to receive for holding equities over a risk-free asset, are integral to investment decision-making. The challenge of accurately forecasting these premia has prompted researchers to explore diverse factors, ranging from traditional macroeconomic indicators to emerging metrics like macro attention indices. This study aims to contribute to the predictive modeling landscape by investigating the forecasting capacity of equity risk premia using both linear and neural network models, trained independently with distinct sets of macroeconomic factors and macro attention indices.
+
+\subsection{Background}
+
+Traditional approaches to forecasting equity risk premia have primarily focused on macroeconomic factors such as interest rates, inflation, and economic growth. Concurrently, the burgeoning field of behavioral finance has introduced macro attention indices—quantifiable measures capturing the collective attention of market participants. These indices reflect the market's sensitivity to information flows and the evolving sentiment among investors.
+
+The rationale for this study lies in recognizing the pivotal interplay between macroeconomic factors and macro attention indices in understanding and predicting equity risk premia. By employing two distinct modeling approaches—linear regression models and neural networks—we seek to disentangle the unique contributions of each set of variables, providing a nuanced understanding of their individual and collective impact on forecasting performance.
+
+\subsection{Objectives}
+
+This research has the following key objectives:
+\begin{itemize}
+  \item Assess the individual predictive capacity of macroeconomic factors in forecasting equity risk premia using linear regression and neural network models.
+  \item Evaluate the effectiveness of macro attention indices in predicting equity risk premia through both linear and neural network models.
+  \item Investigate the combined predictive power of macroeconomic factors and macro attention indices by developing integrated models.
+\end{itemize}
+
+\subsection{Significance of the Study}
+
+The significance of this study extends beyond traditional forecasting methodologies. By employing both linear and neural network models, and considering two distinct sets of variables, we aim to provide a comprehensive analysis that can inform investors, policymakers, and researchers. The findings will contribute insights into the relative strengths and weaknesses of different modeling approaches, ultimately enhancing the understanding of equity market dynamics.
+
+In the subsequent sections, we will delve into a detailed literature review, establish a robust theoretical framework, and conduct empirical analyses to unravel the intricate relationships between macroeconomic factors, macro attention indices, and the forecasting of equity risk premia.
+
+\newpage
+
+\section{Literature Review (checked)}
+
+The literature on forecasting equity risk premia spans studies exploring various factors and methodologies. In this section, we review key contributions related to macroeconomic factors, macro attention indices, and their intersection in predicting equity risk premia.
+
+\subsection{Macroeconomic Factors and Equity Risk Premia}
+
+Historically, research emphasized the role of macroeconomic variables in forecasting equity risk premia. Studies by Fama and French (1988) and Goyal and Welch (2003) explored the impact of dividends and book value on equity markets, providing foundational insights into the relationships between traditional macroeconomic indicators and risk pricing.
+
+Recent contributions by Karolyi and Shue (2019) and Al Saud (2019) extended this research, employing advanced econometric techniques to analyze non-linear relationships between macroeconomic factors and risk premia. Their findings suggest intricate dynamics between certain macroeconomic variables and risk premia, highlighting the need for sophisticated modeling.
+
+\subsection{Macro Attention Indices and Financial Markets}
+
+The emergence of macro attention indices represents a paradigm shift in understanding how information dissemination influences market dynamics. Studies by Johnson et al. (2006) and Korkeamäki et al. (2011) introduce the concept of macro attention and its role in shaping investor sentiment, capturing collective attention from online and media sources.
+
+Recent research by Ma et al. (2022) shows that incorporating macro attention indices in forecasting models enhances predictive accuracy, especially during heightened market uncertainty. This underscores the importance of considering not only traditional economic indicators but also the broader information environment in forecasting equity risk premia.
+
+\subsection{Integration of Macroeconomic Factors and Macro Attention Indices}
+
+While studies independently explored the impact of macroeconomic factors and macro attention indices, to the best of our knowledge, no papers examine their joint influence on equity risk premia. Individual analyses suggest combining these variables might provide a more robust framework for predicting market movements, emphasizing the need for a holistic approach. This study addresses this gap by employing linear regression models and neural networks to dissect individual and joint contributions to forecasting equity risk premia.
+
+Moreover, we delve into specific macroeconomic indicators, such as inflation rates and interest rates, and assess their interplay with macro attention metrics. This comprehensive analysis aims to uncover nuanced relationships that could enhance our understanding of equity risk premia dynamics.
+
+In the following sections, we establish a theoretical framework, outline the methodology, present empirical findings, and discuss the implications of our research for both academic literature and practical applications.
+
+
+\newpage
+
+\section{Theoretical Framework (partially checked)}
+
+The theoretical framework guiding this study integrates principles from financial economics, behavioral finance, and the application of machine learning techniques. Our approach to forecasting the S\&P 500 equity risk premia involves a synthesis of traditional economic drivers and contemporary behavioral factors.
+
+\subsection{Market Dynamics Beyond Efficiency}
+
+Contrary to the traditional Efficient Market Hypothesis (EMH), which posits that financial markets rapidly assimilate all available information, our framework acknowledges the existence of market dynamics beyond complete efficiency. We recognize that market anomalies and deviations from efficiency persist, particularly during periods of heightened investor attention. These anomalies challenge the notion of a consistently efficient market and underscore the need for alternative frameworks.
+
+\subsection{Behavioral Finance and Investor Attention}
+
+Incorporating insights from behavioral finance, our framework introduces psychological aspects into financial decision-making. The concept of investor attention emphasizes that market participants may exhibit herd behavior and react to attention-grabbing information, leading to periods of overreaction or underreaction in the market. By integrating macro attention indices in our forecasting models, we account for the role of sentiment and investor attention in shaping market dynamics, acknowledging the limitations of purely rational decision-making assumptions.
+
+\subsection{Neural Networks in Financial Forecasting}
+
+Neural networks provide a flexible framework for capturing complex, non-linear relationships within data. Unlike traditional linear models, which may struggle to capture intricate dynamics, our framework leverages the capabilities of neural networks. Previous studies have demonstrated the effectiveness of neural networks in uncovering patterns that linear models might overlook. By employing neural networks in our analysis, we aim to enhance our ability to model and predict the nuanced interactions between macroeconomic factors and attention-based metrics impacting equity risk premia. This adaptability is particularly valuable in the context of the evolving and dynamic nature of financial markets.
+
+
+\subsection{Model Specification}
+
+For our study, the equity risk premia (GSPC) will be forecasted using both linear regression and neural network models. The macroeconomic factors (MEF) include:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|p{7.5cm}|}
+\hline
+\textbf{Variable} & \textbf{Name} & \textbf{Description} \\
+\hline
+DP & Log Dividend-Price & Log of 12-month sum of S\&P 500 dividends minus log of S\&P 500 price. \\
+DY & Log Dividend Yield & Log of 12-month sum of S\&P 500 dividends minus log of lagged S\&P 500 prices. \\
+EP & Log Earnings-Price & Log of 12-month sum of S\&P 500 earnings minus log of S\&P 500 prices. \\
+DE & Log Dividend-Payout & Log of 12-month sum of S\&P 500 dividends minus log of 12-month sum of S\&P 500 earnings. \\
+RVOL & Equity Premium Vol & 12-month moving standard deviation estimator based on Mele (2007). \\
+BM & Book-to-Market Ratio & Dow Jones Industrial Average book-to-market value ratio. \\
+NTIS & Net Equity Expansion & Ratio of 12-month sum of NE issues by NYSE-listed stocks to total NYSE stocks' market cap. \\
+TBL & Treasury Bill Rate & Interest rate on three-month Treasury bill (secondary market). \\
+LTY & Long-Term Yield & Yield on long-term government bonds. \\
+LTR & Long-Term Return & Return on long-term government bonds. \\
+TMS & Term Spread & Long-term yield minus treasury bill rate. \\
+DFY & Default Yield Spread & Moody's BAA corporate bond yield minus Moody's AAA corporate bond yield. \\
+DFR & Default Return Spread & Long-term corporate bond return minus long-term government bond return. \\
+INFL & Inflation & Calculated from CPI for all urban consumers, using two periods lagged inflation. \\
+\hline
+\end{tabular}
+\caption{Macroeconomic Factors (MEF) for Equity Risk Premia Forecasting.}
+\end{table}
+
+
+\noindent The macro attention indices (MAI) include:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|p{7.5cm}|}
+\hline
+\textbf{Variable} & \textbf{Name} & \textbf{Description} \\
+\hline
+CR & Credit Rating & Reflects creditworthiness, influencing investor risk perceptions. \\
+GDP & Gross Domestic Product & Represents Gross Domestic Product, a key economic health indicator. \\
+HM & House Market & Captures attention related to housing market trends, reflecting broader economic conditions. \\
+INFL2 & Inflation & Measures inflation rate, impacting economic and monetary policy. \\
+MON & Monetary & Encompasses attention on monetary policy, including interest rates and central bank decisions. \\
+OIL & Oil & Reflects attention on the oil market, crucial for understanding energy-related economic trends. \\
+UNEMP & Unemployment Rate & Captures attention related to employment trends and economic stability. \\
+USD & US Dollar & Reflects attention on the U.S. dollar, impacting international trade and economic conditions. \\
+\hline
+\end{tabular}
+\caption{Macro Attention Indices (MAI) for Equity Risk Premia Forecasting.}
+\end{table}
+
+These variables form the basis for our models, allowing us to independently assess the predictive capabilities of linear regression and neural network models. In the subsequent section, we detail the methodology employed for model implementation and evaluation.
+
+Add table for SP500
+
+\newpage
+
+\section{Methodology (partially checked)}
+
+Forecasting GSPC equity risk premia involves the application of both linear regression and neural network models using the identified MEF and MAI data. The aim is to independently assess the predictive capabilities of these models and understand how the inclusion of behavioral and attention-based metrics enhances forecasting accuracy.
+
+\subsection{Data Management}
+
+The historical data is collected over a time period of 34 years (1985 to 2018) and with three different frequencies (daily, monthly, quarterly). The datasets are organized to align with the time series nature of financial and economic variables, ensuring chronological order for proper model training and evaluation.
+
+\subsubsection{Data Collection (raw data)}
+MEF monthly and quarterly raw data are collected from powder197/Goyal-and-Welch-2008- Github repository. MAI daily, monthly, and quarterly raw data are collected from charlesmartineau/mai\_rfs Github repository. GSPC daily, monthly, and quarterly raw data are collected from Yahoo Finance.
+
+Explaine structure of MEF, MAI, and GSCP raw data.
+
+MEF daily raw data is implied from MEF monthly raw data. More specifically, daily "infl", "ltr", and "corpr" variables are implied from monthly data as follows: $\text{ddp} = (1+\text{mdp})^{1/\text{ndm}}-1$, were $\text{ddp}$ stands for daily data point, $\text{mdp}$ stands for monthly data point, and $\text{ndm}$ means number of days in month. 
+Daily "d12", "e12", "bm", "tbl", "aaa", "baa", "lty", and "ntis" variables are computed as linear interpolations between monthly data points. Lastly, daily "svar" varialbe is simply calculated as $(\text{mdp}/\text{ndm})$, i.e. prorated data through the month.
+
+\subsubsection{Data Cleaning (interim data)}
+
+The collected data undergoes preprocessing steps to improve the quality and compatibility of the input features. This process specifically addresses missing values in the Macro Attention Indices (MAI) raw databases.
+
+To illustrate the calculation of MAI daily, monthly, and quarterly interim data, let's consider the "credit\_rating" variable as an example. If "credit\_rating\_ni" is $0$ while "credit\_rating\_wi is not $0$, the $0$ value of "credit\_rating\_ni" is replaced with the value of "credit\_rating\_wi". Conversely, if "credit\_rating\_wi" is $0$ but "credit\_rating\_ni" is not $0$, the $0$ value of "credit\_rating\_wi" is replaced with the value of "credit\_rating\_ni". In the case where both "credit\_rating\_ni" and "credit\_rating\_wi" are $0$, we retain the previous values of both variables, respectively. This approach is rooted in the rationale that if one journal (but not both) fails to produce the "credit\_rating" index, it indicates that no relevant news related to credit rating was published in that specific journal. In such instances, the other magazine contains updated information embedded in the index. However, when both journals fail to produce the "credit\_rating" index, it suggests that no change in credit rating information was released. Consequently, we can safely assume that the previous information remains unchanged, reflecting a status quo in the index.
+
+MEF and GSCP data require no special interim treatment.
+
+\subsubsection{Data Processing (processed data)}
+
+\subsection{Model Training}
+
+Two distinct approaches are employed for model training: linear regression and neural network models. For linear regression, the relationship between the equity risk premia and the macroeconomic factors is modeled using the standard linear regression equation. The coefficients are estimated using gradient decent with Ridge regularization to capture the linear relationships between the variables.
+
+For neural network models, a feedforward neural network architecture is employed. The network is designed with input layers corresponding to the macroeconomic factors and macro attention indices, hidden layers for capturing non-linear relationships, and an output layer for predicting equity risk premia. The network is trained using Adam optimizer, learning rate $0.0001$, epochs $10$, and batch size $32$, two hidden layers (the first one with $64$ neurons, the second one with $32$ neurons), and dropout layers.
+
+The performance of the models is evaluated using Root Mean Squared Error (RMSE).
+
+\subsection{Comparison and Interpretation}
+
+The results from the linear regression and neural network models, expressed in terms of RMSE, are compared to understand their relative strengths and weaknesses in forecasting equity risk premia. Both sets of economic data-MAI and MEF data-are used independently and also combined in order to evaluate the predictive capacity of different combinations. The target variable is the $1$-month GSPC equity risk premia.
+
+\newpage
+
+\section{Empirical Analysis}
+
+The empirical analysis involves implementing the models specified in the methodology section to forecast the $1$-month GSPC equity risk premia based on the selected macroeconomic factors (MEF) and macro attention indices (MAI). For this, we use daily and monthly data from both sets of economic data.
+
+The findings from the analysis provide insights into the effectiveness of linear regression and neural network models in predicting equity risk premia and the impact of attention-based metrics.
+
+\subsection{Data Overview}
+
+In this study, we use six datasets. MAI stands for the macroeconomic attention indices, MEF stands for the macroeconomic factors, and MKT stands for the S\&P 500 equity risk premia, as explained in 4.4. The table below shows the characteristics of the datasets.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Dataset & \begin{tabular}[c]{@{}c@{}}Number of\\ vairiables\end{tabular} & Frequency & Time Period & \begin{tabular}[c]{@{}c@{}}Number of\\ samples\end{tabular} \\ \hline
+MEF Daily & 14 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
+MAI Daily & 8 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
+MKT Daily & 1 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
+MEF Monthly & 14 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
+MAI Monthly & 8 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
+MKT Monthly & 1 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
+
+\end{tabular}
+\caption{Description of Datasets used for model training.}
+\end{table}
+
+
+\subsection{Model Implementation}
+
+\subsubsection{Linear Regression Model}
+
+The linear regression model is implemented using the identified macroeconomic factors as independent variables. The model is trained on a subset of the dataset, and the coefficients are estimated to establish the linear relationship with the dependent variable.
+
+\subsubsection{Neural Network Model}
+
+The neural network model is implemented using a feedforward neural network architecture. The design of the network includes input layers for MEF and MAI, hidden layers for capturing non-linear relationships, and an output layer for predicting equity risk premia. The model is trained on the dataset, adjusting weights and biases through an optimization process.
+
+\subsection{Results}
+
+The average root mean square error (RMSE) of eight different models (two types of model on four datasets) is tested on ten different random train-test splits of each dataset.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Model} & \textbf{Input Data} & \textbf{RMSE on Test Set} \\ \hline
+\multirow{4}{*}{Linear Model} & MEF Daily & 53.119 \\ \cline{2-3} 
+ & MAI Daily & 36.409 \\ \cline{2-3} 
+ & MEF Monthly & 36.357 \\ \cline{2-3} 
+ & MAI Monthly & 36.376 \\ \hline
+\multirow{4}{*}{NN Model} & MEF Daily & 36.357 \\ \cline{2-3} 
+ & MAI Daily & 36.376 \\ \cline{2-3} 
+ & MEF Monthly & 36.376 \\ \cline{2-3} 
+ & MAI Monthly & 53.119 \\ \hline
+\end{tabular}
+\caption{Comparision of RMSE of different models.}
+\label{tab:my-table}
+\end{table}
+
+\subsection{Comparison and Interpretation}
+
+The table presented in section 6.3 clearly illustrates the superior performance of neural network models compared to linear regression models across all datasets. The RMSE of neural network models is approximately 17 units lower than that of linear models. Although linear models offer insights into the impact of individual factors on equity risk premia through coefficient examination and significance testing, neural networks excel in predictive accuracy, making them more robust for real-world applications.
+
+\newpage
+
+\section{Discussion}
+
+\subsection{Practical Implications}
+
+This investigation not only demonstrates the heightened predictive efficacy of neural network models in contrast to linear models but also indicates that utilizing either MEF data or MAI data as input yields comparable impacts on prediction quality, which is different from the conclusions in previous works.
+
+\subsection{Limitations}
+
+While the mean root mean square error (RMSE) of neural network models appears superior to that of linear models, a noteworthy observation is the substantial variability in the RMSE values. For instance, in the case of the neural network model applied to the MAI monthly data, the RMSE is recorded as 36.357, yet the standard deviation is notably high at 4.087 within the 10-fold cross-validation, as evident in the accompanying figure.
+\begin{figure}[H]
+    \centering \includegraphics[width=0.7\linewidth]{RMSE of each round of cross-validation.PNG}
+    \caption{RMSE of each round of cross-validation, NN on MAI monthly}
+\end{figure}
+The model's performance exhibits a notable dependence on the characteristics of the input data. Despite the random partitioning of 10 sets of training and test data within the same dataset, significant variations persist. This variance implies an irregular distribution of the data itself, making the identification of causal relationship patterns challenging. It can be inferred that certain equity risk premia exhibit a more pronounced correlation with the input indices than others.
+
+\subsection{Future Research Directions}
+
+On one hand, there exists ample room for improvement in the model structure. Drawing insights from prior research, it is evident that variables such as equity risk premia often manifest time series correlation characteristics. Our models, which rely solely on macroeconomic features as input, are deemed overly simplistic for robust equity risk premia forecasts. Consequently, the suggestion arises that the initiation of a more formidable modeling approach, beginning with neural network models, would be prudent, with macroeconomic features serving as valuable contributors to the predictive framework.
+
+\noindent On the other hand, it is equally valuable to explore scenarios wherein MAI and MEF exhibit noteworthy distinctions in capturing the influence of macroeconomic factors on equity risk premia. This exploration can provide deeper insights into the nuanced dynamics between different macroeconomic indicators and their impact on stock market outcomes.
+
+\newpage
+
+\section{Conclusion}
+
+\subsection{Summary of Findings}
+
+The findings underscore the considerable superiority of neural network models over their linear regression counterparts across diverse datasets. While linear models offer valuable insights into the impact of individual factors on equity risk premia through coefficient examination and significance testing, the predictive strength of neural networks positions them as more robust tools for real-world applications.
+
+\subsection{Contributions to Knowledge}
+
+Based on previous research,  this study has six models trained—comprising a linear regression model and a neural network model trained on three distinct datasets—to forecast equity risk premia. The performance metrics of these forecasts are presented in a lucid manner.
+
+\subsection{Practical Implications}
+
+This study not only emphasizes the heightened predictive efficacy of neural network models but also reveals that the utilization of either MEF data or MAI data as input yields comparable impacts on prediction quality. This stands in contrast to conclusions drawn in prior works, suggesting nuanced considerations in feature selection for equity risk premia forecasts.
+
+\subsection{Limitations and Caveats}
+
+Despite the overall superiority of neural network models, an important consideration is the observed variability in RMSE values. The model's performance exhibits dependence on input data characteristics, indicating an irregular data distribution and the challenge of identifying causal relationship patterns.
+
+\subsection{Recommendations for Future Research}
+
+Further exploration is warranted in enhancing the model structure, acknowledging insights from previous research indicating time series correlation characteristics in equity risk premia. A recommendation is made to explore more sophisticated modeling approaches, commencing with neural network models and incorporating macroeconomic features as valuable contributors to the predictive framework.
+
+\noindent Additionally, investigating scenarios where MAI and MEF exhibit distinctions in capturing the influence of macroeconomic factors on equity risk premia presents an avenue for future research. 
+
+\newpage
+
+\section{References}
+
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
+\begin{thebibliography}{9}
+\bibitem{Hasannasab2021}
+Fama and French. (1988). \emph{Dividend Yields and Expected Stock Returns}. 
+
+\bibitem{Liu1995}
+Goyal and Welch. (2003). \emph{Predicting the Equity Premium with Dividend Ratios}.
+
+\bibitem{Aeschliman2010}
+G. Andrew Karolyi and Kelly Shue. (2019). \emph{Machine Learning in Asset Pricing}.
+
+\bibitem{Aeschliman2010}
+Ahmed S. Al Saud. (2019). \emph{Predicting Stock Returns: An Examination of the Equity Premium Predictability via Machine Learning Techniques}.
+
+\bibitem{Aeschliman2010}
+Neil Johnson, Guannan Zhao, Eric Hunsader, et al. (2006). \emph{News Analytics}.
+
+\bibitem{Aeschliman2010}
+Timo Korkeamäki, Sami Vähämaa, and Josef Zechner. (2011). \emph{Financial News Predicts Stock Market Volatility Better Than Close Price}.
+
+\bibitem{Aeschliman2010}
+Feng Ma, Xinjie Lu, Jia Liu, and Dengshi Huang. (2022). \emph{Macroeconomic attention and stock market return predictability}.
+
+\end{thebibliography}
+
+\newpage
+
+\section{Appendices}
+% Additional information or supplementary material.
+
+\end{document}
