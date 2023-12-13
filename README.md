@@ -73,11 +73,14 @@ S&P500 proces are obtained from [Yahoo Finance](https://finance.yahoo.com).
 Resources
 ------------
 
-Adlai Fisher, Charles Martineau, Jinfei Sheng, Macroeconomic Attention and Announcement Risk Premia, The Review of Financial Studies, Volume 35, Issue 11, November 2022, Pages 5057–5093, https://doi.org/10.1093/rfs/hhac011
+[Fama and French. (1988). Dividend Yields and Expected Stock Returns.](https://www.sciencedirect.com/science/article/pii/0304405X88900207)
+[Goyal and Welch. (2003). Predicting the Equity Premium with Dividend Ratios.](https://www.jstor.org/stable/4133989)
+[Lo and Singh. (2003). Deep-learning models for forecasting financial risk premia and their interpretations.](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2203844)
+[Gu, Kelly, and Xiu. (2019). Empirical Asset Pricing via Machine Learning.](https://dachxiu.chicagobooth.edu/download/ML.pdf)
+[Andrei and Hasler. (2012). Investors’ Attention and Stock Market Volatility.](https://www.epfl.ch/labs/cfi/wp-content/uploads/2018/08/WP757_A2.pdf)
+[Nikkinen, Omran, Sahlstr ̈om, and  ̈Aij ̈o, (2006). Global stock market reactions to scheduled U.S. macroeconomic news announcements.](https://www.sciencedirect.com/science/article/pii/S104402830600024X)
+[Ma, Lu, Liu, and Huang. (2022). Macroeconomic attention and stock market return predictability.](https://doi.org/10.1016/j.intfin.2022.101603)
 
-Feng Ma, Xinjie Lu, Jia Liu, Dengshi Huang,
-Macroeconomic attention and stock market return predictability,
-Journal of International Financial Markets, Institutions and Money, Volume 79, 2022, 101603, ISSN 1042-4431, https://doi.org/10.1016/j.intfin.2022.101603
 
 Contributors
 ------------
