@@ -73,19 +73,19 @@ S&P500 proces are obtained from [Yahoo Finance](https://finance.yahoo.com).
 Resources
 ------------
 
-[Fama and French. (1988). Dividend Yields and Expected Stock Returns.](https://www.sciencedirect.com/science/article/pii/0304405X88900207)
+[Eugene F. Fama, Kenneth R. French, Dividend yields and expected stock returns, Journal of Financial Economics, Volume 22, Issue 1, 1988, Pages 3-25, ISSN 0304-405X](https://www.sciencedirect.com/science/article/pii/0304405X88900207)
 
-[Goyal and Welch. (2003). Predicting the Equity Premium with Dividend Ratios.](https://www.jstor.org/stable/4133989)
+[Goyal, Amit, and Ivo Welch. “Predicting the Equity Premium with Dividend Ratios.” Management Science, vol. 49, no. 5, 2003, pp. 639–54. JSTOR](https://www.jstor.org/stable/4133989)
 
-[Lo and Singh. (2003). Deep-learning models for forecasting financial risk premia and their interpretations.](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2203844)
+[Andrew W. Lo & Manish Singh (2023) Deep-learning models for forecasting financial risk premia and their interpretations, Quantitative Finance, 23:6, 917-929](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2203844)
 
-[Gu, Kelly, and Xiu. (2019). Empirical Asset Pricing via Machine Learning.](https://dachxiu.chicagobooth.edu/download/ML.pdf)
+[Shihao Gu, Bryan Kelly, Dacheng Xiu, Empirical Asset Pricing via Machine Learning, The Review of Financial Studies, Volume 33, Issue 5, May 2020, Pages 2223–2273](https://dachxiu.chicagobooth.edu/download/ML.pdf)
 
-[Andrei and Hasler. (2012). Investors’ Attention and Stock Market Volatility.](https://www.epfl.ch/labs/cfi/wp-content/uploads/2018/08/WP757_A2.pdf)
+[Andrei, Daniel and Hasler, Michael, Investor Attention and Stock Market Volatility (June 3, 2013). The Review of Financial Studies, 2015](https://www.epfl.ch/labs/cfi/wp-content/uploads/2018/08/WP757_A2.pdf)
 
-[Nikkinen, Omran, Sahlström, and Äijö, (2006). Global stock market reactions to scheduled U.S. macroeconomic news announcements.](https://www.sciencedirect.com/science/article/pii/S104402830600024X)
+[Jussi Nikkinen, Mohammed Omran, Petri Sahlström, Janne Äijö, Global stock market reactions to scheduled U.S. macroeconomic news announcements, Global Finance Journal, Volume 17, Issue 1, 2006, Pages 92-104, ISSN 1044-0283](https://www.sciencedirect.com/science/article/pii/S104402830600024X)
 
-[Ma, Lu, Liu, and Huang. (2022). Macroeconomic attention and stock market return predictability.](https://doi.org/10.1016/j.intfin.2022.101603)
+[Feng Ma, Xinjie Lu, Jia Liu, Dengshi Huang, Macroeconomic attention and stock market return predictability, Journal of International Financial Markets, Institutions and Money, Volume 79, 2022, 101603, ISSN 1042-4431](https://doi.org/10.1016/j.intfin.2022.101603)
 
 
 Contributors
