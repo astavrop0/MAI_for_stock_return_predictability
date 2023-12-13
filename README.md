@@ -83,7 +83,7 @@ Resources
 
 [Andrei and Hasler. (2012). Investors’ Attention and Stock Market Volatility.](https://www.epfl.ch/labs/cfi/wp-content/uploads/2018/08/WP757_A2.pdf)
 
-[Nikkinen, Omran, Sahlstr ̈om, and  ̈Aij ̈o, (2006). Global stock market reactions to scheduled U.S. macroeconomic news announcements.](https://www.sciencedirect.com/science/article/pii/S104402830600024X)
+[Nikkinen, Omran, Sahlström, and Äijö, (2006). Global stock market reactions to scheduled U.S. macroeconomic news announcements.](https://www.sciencedirect.com/science/article/pii/S104402830600024X)
 
 [Ma, Lu, Liu, and Huang. (2022). Macroeconomic attention and stock market return predictability.](https://doi.org/10.1016/j.intfin.2022.101603)
 
