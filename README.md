@@ -1,7 +1,11 @@
 MAI_for_stock_return_predictability
 ==============================
 
-In this project we are examining whether the macroeconomic attention indices proposed by Fischer et al. (2022) have the ability to predict stock returns based on some statistical and machine learning algorithms. To evaluate that we compare their predictability efficiency with that of other popular macroeconomic variables.
+We conduct forecasts for equity risk premia utilizing linear and neural network models trained on sets of macroeconomic factors and macroeconomic attention indices. The macroeconomic factors set comprises the 14 features recommended in previous works by Goyal and Welch (2008). The set of macro attention indices includes the eight features constructed by Fisher et al. (2022). Equity risk premia represent the annualized excess return of the one-month S&P 500 index over the prevailing risk-free rate, approximated by the yield on short-term Treasury Bills. 
+
+Our analysis is based on datasets published in other Github repository and Yahoo Finance (see below), with focus on the period between 1985 and 2018, given the availability of the combined data.
+
+Our results deviate from previous research, suggesting the need for further investigation into the datasets.
 
 Project Organization
 ------------
@@ -43,23 +47,23 @@ Project Organization
 Description of Steps 
 ------------
 
-- Preparation of  a folder structure, using the cookiecutter Data Science template
+- Preparing of a folder structure, using the cookiecutter Data Science template
 
-- Downloaded of raw data [see below]
+- Downloading raw data [see below]
 
-- Create upstream and downstream functions
+- Creating upstream and downstream functions
 
-- Generation of tables which can be directly imported to Latex 
+- Generating tables which can be directly imported to Latex 
 
-- Connect Overleaf to Github (all Overleaf Files can be directly accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c))
+- Connecting Overleaf to Github (all Overleaf Files can be directly accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c))
 
-- Use R Shiny and Plotly to create interactive graphs in order to do robustness checks - data frequency, data features, date range, visualization - (app can be directly accessed [here](https://baumender11.shinyapps.io/Alpha/))
+- Creating an interactive app in Shiny For R to perform robustness checks - data frequency, data features, date range, visualization - (app can be directly accessed [here](https://baumender11.shinyapps.io/Alpha/))
 
-- Ensure reproducibility by adding Dockerfile 
+- Ensuring reproducibility by adding Dockerfile 
 
-- Analysis and interpretation of findings
+- Analysing and interpreting findings
 
-- Compare results with current research
+- Comparing results with current research
 
 Data 
 ------------
