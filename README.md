@@ -110,10 +110,10 @@ docker build -t your-image-name .
 
 ### Running the Docker Container
 
-Once the image is built, you can run it as a container. 
-
-- To run the container, execute the following command:
+Once the image is built, you can run it as a container. To do it, execute the following command:
+```
 docker run your-image-name
+```
 
 Resources
 ------------
