@@ -1,7 +1,11 @@
 MAI_for_stock_return_predictability
 ==============================
 
-In this project we are examining whether the macroeconomic attention indices proposed by Fischer et al. (2022) have the ability to predict stock returns based on some statistical and machine learning algorithms. To evaluate that we compare their predictability efficiency with that of other popular macroeconomic variables.
+We conduct forecasts for equity risk premia utilizing linear and neural network models trained on sets of macroeconomic factors and macroeconomic attention indices. The macroeconomic factors set comprises the 14 features recommended in previous works by Goyal and Welch (2008). The set of macro attention indices includes the eight features constructed by Fisher et al. (2022). Equity risk premia represent the annualized excess return of the one-month S&P 500 index over the prevailing risk-free rate, approximated by the yield on short-term Treasury Bills. 
+
+Our analysis is based on datasets published in other Github repository and Yahoo Finance (see below), with focus on the period between 1985 and 2018, given the availability of the combined data.
+
+Our results deviate from previous research, suggesting the need for further investigation into the datasets.
 
 Project Organization
 ------------
