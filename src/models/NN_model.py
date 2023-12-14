@@ -55,13 +55,11 @@ X_mef_d = X_mef_d.values
 X_mai_d = X_mai_d.values
 y_mkt_d = y_mkt_d.values
 
+
 # Function: split data into training and test set based on the random state
 def split_data(X, y, test_size, random_state):
     X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=test_size,random_state=random_state)
     return X_train, y_train, X_test, y_test
-
-
-# Function: build the neural network model for MAI data
 
 # Function: build the neural network model for MAI data
 
@@ -87,7 +85,7 @@ def train_neural_network_MAI(X, y):
 
     # Compile the model
     # the best optimizer and learning rate have been selected
-    model.compile(optimizer=Adam(learning_rate=0.0001), loss='mean_squared_error', metrics=['mae'])
+    model.compile(optimizer=Adam(learning_rate=0.01), loss='mean_squared_error', metrics=['mae'])
 
     # Train the model
     # the best number of epochs and batch_size have been selected
@@ -135,7 +133,7 @@ def train_neural_network_MEF(X, y):
 
     # Compile the model
     # the best optimizer and learning rate have been selected
-    model.compile(optimizer=Adam(learning_rate=0.0001), loss='mean_squared_error', metrics=['mae'])
+    model.compile(optimizer=Adam(learning_rate=0.01), loss='mean_squared_error', metrics=['mae'])
     
     epochs = 10  # Define the number of epochs
     
@@ -156,8 +154,6 @@ def train_neural_network_MEF(X, y):
     avg_RMSE_test = np.mean([mse_value_val ** 0.5 for mse_value_val in mse_values_val])
 
     return model, history, avg_RMSE_train, avg_RMSE_test
-
-
 
 #Function: evaluate the performance of the model and show the values in plot
 def test_model(model, X_test, y_test):
@@ -200,21 +196,6 @@ def test_model(model, X_test, y_test):
     return MSE, MAE, R2
 
 
-
-# Train one model on MAI monthly data
-# Generate training and test data sets
-X_train, y_train, X_test, y_test = split_data(X_mai_m, y_mkt_m, 0.2, 0)
-
-# Use X_train and y_train as MAI features and target variable
-trained_model, training_history, avg_RMSE_train, avg_RMSE_test = train_neural_network_MAI(X_train, y_train)
-
-print('During training of this NN model, average training RMSE is', avg_RMSE_train, ', average validation RMSE is', avg_RMSE_test)
-
-# Have the performance of the trained model evaluated on the test set
-MSE, MAE, R2 = test_model(trained_model, X_test, y_test)
-print(f'RMSE: {MSE**(1/2)}, MAE: {MAE}, R2: {R2}')
-
-
 # Test the performance of the model on 10 different random train-test splits of MAI monthly data, and report the average RMSE.
 list_RMSE_train_train=[]
 list_RMSE_train_val=[]
@@ -222,6 +203,8 @@ list_RMSE=[]
 
 np.random.seed(11)
 random.seed(11)
+tf.random.set_seed(11)
+
 
 # Use tqdm for the outer loop to track progress of iterations
 for i in tqdm(range(10), desc="Training Iterations", file=sys.stdout):
@@ -242,7 +225,10 @@ for i in tqdm(range(10), desc="Training Iterations", file=sys.stdout):
 # Calculate and print average RMSE
 avg_RMSE = np.mean(list_RMSE)
 print(' ')
+print(' ')
 print('The average test RMSE over 10 iterations for MAI monthly data is:', avg_RMSE)
+print(' ')
+print(' ')
 
 
 sns.boxplot(data=[list_RMSE_train_train, list_RMSE_train_val])
@@ -265,6 +251,7 @@ plt.legend()
 
 plt.show()
 
+
 # Test the performance of the model on 10 different random train-test splits of MEF monthly data, and report the average RMSE.
 list_RMSE_train_train2=[]
 list_RMSE_train_val2=[]
@@ -272,6 +259,7 @@ list_RMSE2=[]
 
 np.random.seed(11)
 random.seed(11)
+tf.random.set_seed(11)
 
 # Use tqdm for the outer loop to track progress of iterations
 for i in tqdm(range(10), desc="Training Iterations", file=sys.stdout):
@@ -290,30 +278,11 @@ for i in tqdm(range(10), desc="Training Iterations", file=sys.stdout):
     list_RMSE2.append(MSE**(1/2))
 avg_RMSE2=np.mean(list_RMSE2)
 print(' ')
+print(' ')
 print('The average test RMSE over 10 iterations for MEF monthly data is:', avg_RMSE2)
+print(' ')
+print(' ')
 
-
-
-# Test the performance of the model on 10 different random train-test splits of MEF monthly data, and report the average RMSE.
-list_RMSE_train_train2=[]
-list_RMSE_train_val2=[]
-list_RMSE2=[]
-for i in range(0,10):
-  # Generate training and test data sets
-  X_train, y_train, X_test, y_test = split_data(X_mef_m, y_mkt_m, 0.2, i)
-
-  # Use X_train and y_train as MAI features and target variable
-  trained_model, training_history, avg_RMSE_train, avg_RMSE_test = train_neural_network_MEF(X_train, y_train)
-  print('During training of this NN model, average training RMSE is', avg_RMSE_train, ', average validation RMSE is', avg_RMSE_test)
-  list_RMSE_train_train2.append(avg_RMSE_train)
-  list_RMSE_train_val2.append(avg_RMSE_test)
-
-  # Have the performance of the trained model evaluated on the test set
-  MSE, MAE, R2 = test_model(trained_model, X_test, y_test)
-  print(f'RMSE: {MSE**(1/2)}, MAE: {MAE}, R2: {R2}')
-  list_RMSE2.append(MSE**(1/2))
-avg_RMSE2=np.mean(list_RMSE2)
-print('The average RMSE is', avg_RMSE2)
 
 sns.boxplot(data=[list_RMSE_train_train2, list_RMSE_train_val2])
 plt.xticks([0, 1], ['Train', 'Test'])
@@ -321,11 +290,46 @@ plt.ylabel('RMSE')
 plt.title('Distribution of RMSE over Iterations (MEF monthly training data)')
 
 
+list_RMSE_train_train1=[]
+list_RMSE_train_val1=[]
+list_RMSE1=[]
+num_iterations = 1
+np.random.seed(11)
+random.seed(11)
+tf.random.set_seed(11)
+
+for i in range(0,num_iterations):
+  # Generate training and test data sets
+  X_train, y_train, X_test, y_test = split_data(X_mai_d, y_mkt_d, 0.2, i)
+
+  # Use X_train and y_train as MAI features and target variable
+  trained_model, training_history, avg_RMSE_train, avg_RMSE_test = train_neural_network_MAI(X_train, y_train)
+  print('During training of this NN model, average training RMSE is', avg_RMSE_train, ', average validation RMSE is', avg_RMSE_test)
+  list_RMSE_train_train1.append(avg_RMSE_train)
+  list_RMSE_train_val1.append(avg_RMSE_test)
+
+  # Have the performance of the trained model evaluated on the test set
+  MSE, MAE, R2 = test_model(trained_model, X_test, y_test)
+  print(f'RMSE: {MSE**(1/2)}, MAE: {MAE}, R2: {R2}')
+  list_RMSE1.append(MSE**(1/2))
+avg_RMSE1=np.mean(list_RMSE1)
+print(' ')
+print(' ')
+print('The test RMSE for MAI daily data is:', avg_RMSE1)
+print(' ')
+print(' ')
+
+
 # Test the performance of the model on 10 different random train-test splits of MEF daily data, and report the average RMSE.
 list_RMSE_train_train3=[]
 list_RMSE_train_val3=[]
 list_RMSE3=[]
-for i in range(0,10):
+num_iterations = 1
+np.random.seed(11)
+random.seed(11)
+tf.random.set_seed(11)
+
+for i in range(0,num_iterations):
   # Generate training and test data sets
   X_train, y_train, X_test, y_test = split_data(X_mef_d, y_mkt_d, 0.2, i)
 
@@ -340,14 +344,8 @@ for i in range(0,10):
   print(f'RMSE: {MSE**(1/2)}, MAE: {MAE}, R2: {R2}')
   list_RMSE3.append(MSE**(1/2))
 avg_RMSE3=np.mean(list_RMSE3)
-print('The average RMSE is', avg_RMSE3)
-
-sns.boxplot(data=[list_RMSE_train_train3, list_RMSE_train_val3])
-plt.xticks([0, 1], ['Train', 'Test'])
-plt.ylabel('RMSE')
-plt.title('Distribution of RMSE over Iterations (MEF daily training data)')
-
-
-
-
-
+print(' ')
+print(' ')
+print('The test RMSE for MEF daily data is:', avg_RMSE3)
+print(' ')
+print(' ')
