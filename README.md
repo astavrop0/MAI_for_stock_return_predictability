@@ -77,7 +77,7 @@ S&P500 data is obtained from [Yahoo Finance](https://finance.yahoo.com).
 Installation
 ------------
 
-To install the required packages for this project, follow these steps:
+To install the required packages nd replicate this project, follow these steps:
 
 1. Clone the repository to your local machine:
 ```
