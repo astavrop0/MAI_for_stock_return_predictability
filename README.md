@@ -32,16 +32,12 @@ Project Organization
         ├── data           <- Scripts to turn raw data into features for modeling
         │   └── make_dataset.py
         │
-        ├── models         <- Scripts to train models and make predictions
-        │   │                 
+        ├── models         <- Scripts to train models and make prediction             
         │   ├── linear_model.py
-        │   │
         │   └── NN_model.py
         │
         └── shiny  <- Code and data to create R shiny app for visualizations
-            │
             ├── shiny_data
-            │
             └── stock_return_prediction_app.R
     
 Description of Steps 
