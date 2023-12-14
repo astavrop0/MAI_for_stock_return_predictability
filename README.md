@@ -69,7 +69,26 @@ Macroeconomic Attention Indices (MAI) data are obtained from [charlesmartineau/m
 MEF data are obtained from the [powder197/Goyal-and-Welch-2008-](https://github.com/powder197/Goyal-and-Welch-2008-/tree/master) Github repository.
 
 S&P500 proces are obtained from [Yahoo Finance](https://finance.yahoo.com).
-  
+
+Installation
+------------
+
+To install the required packages for this project, follow these steps:
+
+1. Clone the repository to your local machine:
+
+`git clone https://github.com/astavrop0/MAI_for_stock_return_predictability.git`
+
+2. Navigate to the cloned repository directory:
+
+`cd MAI_for_stock_return_predictability`
+
+3. Install the required packages using pip:
+
+`pip install -r requirements.txt`
+
+This will install all the Python packages listed in `requirements.txt`.
+ 
 Resources
 ------------
 
