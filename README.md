@@ -47,7 +47,7 @@ Project Organization
 Description of Steps 
 ------------
 
-- Preparing a folder structure using the cookiecutter Data Science template
+- Preparing of a folder structure, using the cookiecutter Data Science template
 
 - Downloading raw data [see below]
 
@@ -92,6 +92,30 @@ To install the required packages for this project, follow these steps:
   pip install -r requirements.txt
 ```
   This will install all the Python packages listed in `requirements.txt`.
+
+Running with Docker
+------------
+
+This project can be easily set up and run using Docker. Follow the steps below to build and run the project inside a Docker container.
+
+### Prerequisites
+- Ensure you have [Docker installed](https://docs.docker.com/get-docker/) on your machine.
+
+2. Navigate to the cloned repository's directory:
+
+3. Build the Docker image. Replace `your-image-name` with a name of your choice for the Docker image:
+```
+  pip install -r requirements.txt
+```
+docker build -t your-image-name .
+```
+
+### Running the Docker Container
+
+Once the image is built, you can run it as a container. 
+
+- To run the container, execute the following command:
+docker run your-image-name
 
 Resources
 ------------
