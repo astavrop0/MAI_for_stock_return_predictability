@@ -118,14 +118,10 @@
 \begin{frame}{Methodology}
   \begin{itemize}
     \item \textbf{Data Management}
-    \newline
-    Historical data from 1985 to 2018, daily, monthly, and quarterly frequencies. Collected from various repositories, organized chronologically for model training.
-    \newline
+    Historical data from 1.1.1985 to 31.12.2018, daily, monthly, and quarterly frequencies. Collected from various repositories, organized chronologically for model training.
       \begin{itemize}
         \item \textbf{Data Collection (Raw Data):} MEF and MAI data collected from specific GitHub repositories. GSPC data collected from Yahoo Finance.
-        \newline
         \item \textbf{Data Cleaning (Interim Data):} Preprocessing steps applied to address missing values in MAI raw databases.
-        \newline
         \item \textbf{Data Processing (Processed Data):} MEF and MAI data undergo processing to construct data for model training. Calculations include transformations and interpolations to derive key macroeconomic factors and attention indexes.
       \end{itemize}
   \end{itemize}
@@ -133,182 +129,25 @@
 
 \begin{frame}{Methodology (continued)}
   \begin{itemize}
-    \item \textbf{Model Training}
-      \begin{itemize}
-        \item Two approaches: linear regression and neural network models.
-        \item Linear regression uses the standard equation with gradient descent and Ridge regularization.
-        \item Neural network employs traditional feedforward architecture.
-        \item Root Mean Squared Error (RMSE) used to assess performance.
-      \end{itemize}
-    \item \textbf{Comparison and Interpretation}
-      \begin{itemize}
-        \item Comparative analysis of results from both models.
-        \item Evaluation based on RMSE for different combinations of economic data (MAI and MEF) and target variable (1-month GSPC ERP).
-        \item Daily and monthly frequencies considered.
-      \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\section{Empirical Analysis}
-\begin{frame}{Empirical Analysis}
-\begin{itemize}
-\item\textbf{The empirical analysis:}
-      \begin{itemize}
-        \item Involves implementing the models specified in the methodology section to forecast the $1$-month GSPC equity risk premia based on the selected macroeconomic factors (MEF) and macro attention indices (MAI). For this, we use daily and monthly data from both sets of economic data.
-        \item The findings from the analysis provide insights into the effectiveness of linear regression and neural network models in predicting equity risk premia and the impact of attention-based metrics.
-        \end{itemize}
-            \end{itemize}
-\end{frame}
-
-\begin{frame}{Empirical Analysis: Data Overview}
-  \begin{itemize}
-    \item \textbf{Data Overview}
+    \item \textbf{Data Selection}
     \begin{itemize}
-      \item We used six datasets with their characteristics summarized in the following table:
-    \end{itemize}
-  \end{itemize}
-
-  \begin{table}[H]
-    \centering
-    \resizebox{\textwidth}{!}{%
-      \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        \textbf{Dataset} & \textbf{Number of Variables} & \textbf{Frequency} & \textbf{Time Period} & \textbf{Number of Samples} \\ \hline
-        MEF Daily & 14 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
-        MAI Daily & 8 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
-        MKT Daily & 1 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
-        MEF Monthly & 14 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
-        MAI Monthly & 8 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
-        MKT Monthly & 1 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
-      \end{tabular}%
-    }
-    \caption{Description of Datasets used for model training.}
-    \label{tab:Datasets}
-  \end{table}
-\end{frame}
-
-\begin{frame}{Empirical Analysis (continued)}
-  \begin{itemize}    
-    \item \textbf{Model Implementation}
-      \begin{itemize}
-        \item \textbf{Linear Regression Model:}
-          \begin{itemize}
-            \item The linear regression model is implemented using MEF and MAI data as independent variables. The model is trained to establish their linear relationship with GSPC ERP data, the dependent variable.
-          \end{itemize}
-        \item \textbf{Neural Network Model:}
-          \begin{itemize}
-            \item The neural network model is implemented using a feedforward neural network architecture. The design of the network includes input layers for MEF and MAI data, hidden layers for capturing non-linear relationships, and an output layer for predicting GSCP ERP. The model is designed to capture the potential non-linear relationship of the datasets.
-          \end{itemize}
-      \end{itemize}
-  \end{itemize}
-\end{frame}
-
-
-\begin{frame}{Empirical Analysis (continued)}
-    \begin{itemize}
-        \item \textbf{Results}
-            \begin{itemize}
-                \item The average root mean square error (RMSE) of eight different models (two types of models on four datasets) is tested on ten different random train-test splits of each dataset.
-            \end{itemize}
-    \end{itemize}
-
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|c|c|c|}
-          \hline
-          \textbf{Model} & \textbf{Input Data} & \textbf{RMSE on Test Set} \\ \hline
-          \multirow{4}{*}{Linear Model} & MEF Daily & 53.243 \\ \cline{2-3} 
-          & MAI Daily & 54.677 \\ \cline{2-3} 
-          & MEF Monthly & 54.307 \\ \cline{2-3} 
-          & MAI Monthly & 53.571 \\ \hline
-          \multirow{4}{*}{NN Model} & MEF Daily & 51.660 \\ \cline{2-3} 
-          & MAI Daily & 51.650 \\ \cline{2-3} 
-          & MEF Monthly & 42.794 \\ \cline{2-3} 
-          & MAI Monthly & 42.596 \\ \hline
-        \end{tabular}
-        \caption{Comparison of RMSE of different models}
-        \label{tab:PerformanceResults}
-    \end{table}
-\end{frame}
-
-
-\begin{frame}{Empirical Analysis (continued)}
-  \begin{itemize}
-    \item The figures below illustrate disparities between actual and forecasted values generated by our trained linear and neural network models on MAI monthly data.
-  \end{itemize}
-
-  \begin{figure}[H]
-    \centering
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{predvstrue_LM_MAI_M.png}
-      \caption{Linear Model Prediction}
-      \label{fig:linear_prediction}
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{predvstrue_NN_MAI_M.png}
-      \caption{Neural Network Model Prediction}
-      \label{fig:nn_prediction}
-    \end{minipage}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Empirical Analysis (continued)}
-  \begin{figure}
-    \centering
-    \includegraphics[width=0.70\textwidth]{Distribution of RMSE_Linear_M.png}
-    \caption{Distribution of RMSE over iterations, linear models on monthly data.}
-    \label{fig:linear_prediction_ii}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Empirical Analysis (continued)}
-  \begin{itemize}
-    \item Distribution of RMSE over iterations, NN models on monthly data.
-  \end{itemize}
-
-  \begin{figure}[H]
-    \centering
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{Distribution of RMSE_NN_MEF_M.png}
-      \caption{MEF monthly.}
-      \label{fig:linear_prediction}
-    \end{minipage}\hfill
-    \begin{minipage}{0.48\textwidth}
-      \centering
-      \includegraphics[width=\linewidth]{Distribution of RMSE_NN_MAI_M.png}
-      \caption{MAI monthly.}
-      \label{fig:nn_prediction}
-    \end{minipage}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Empirical Analysis (continued)}
-    \begin{itemize}
-        \item \textbf{Comparison and Interpretation}
+        \item Utilizing the \href{https://baumender11.shinyapps.io/Alpha/}{Interactive Shiny App} facilitates visualization of the impact of various features and temporal ranges.
+        \item Flexibility to:
         \begin{itemize}
-            \item \textbf{Model Selection}
-            \begin{itemize}
-                \item Neural network models outperform linear regression models across all datasets with an approximately 17-unit lower RMSE. 
-                \item Their superior predictive accuracy makes them robust for real-world applications.
-            \end{itemize}
-            
-            \item \textbf{Data Selection}
-            \begin{itemize}
-                \item Linear models provide insights into individual factors' impact on equity risk premia through coefficient examination. 
-                \item An interactive Shiny app allows users to visualize the impact of various features and temporal ranges. 
-                \item The app supports flexible selections of MEF and MAI variables, temporal spans (from 1.1.1985 to 31.12.2018), and frequencies (daily, monthly, quarterly).
-            \end{itemize}
+            \item select any subset of the 14 MEF variables,
+            \item select any subset of the 8 MAI variables,
+            \item select any time window ranging from 1.1.1985 to 31.12.2018,
+            \item select different temporal frequencies of the data (daily, monthly, quarterly).
         \end{itemize}
+        \item The MEF model results are denoted by blue lines, the MAI model results by green lines, and the veritable values by the red line.
+        \item In the next slides we provide a few cases.
     \end{itemize}
+  \end{itemize}
 \end{frame}
 
-
-\begin{frame}{Empirical Analysis (continued)}
+\begin{frame}{Methodology (continued)}
   \begin{itemize}
-    \item In the first case, quarterly data between 1.1.1985 and 31.12.2018 of MEF Log Dividend-Price (solid blue), MEF Log Dividend Yield (dashed blue), MAI Credit Rating (dashed green), and MKT GSPC (solid red) are selected.
+    \item Quarterly data between 1.1.1985 and 31.12.2018 of MEF Log Dividend-Price (solid blue), MEF Log Dividend Yield (dashed blue), MAI Credit Rating (dashed green), and MKT GSPC (solid red) are selected.
   \end{itemize}
     \begin{figure}[H]
         \centering
@@ -321,9 +160,9 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Empirical Analysis (continued)}
+\begin{frame}{Methodology (continued)}
   \begin{itemize}
-    \item In the second case, quarterly data between 1.1.1985 and 31.12.2018 of MEF Log Dividend-Price (solid blue), MEF Log Dividend Yield (dotted blue), MEF Log Earnings-Price (dashed blue), MAI Credit Rating (dotted green), MAI Gross Domestic Product (solid green), and MKT GSCP (solid red) are selected.
+    \item Quarterly data between 1.1.1985 and 31.12.2018 of MEF Log Dividend-Price (solid blue), MEF Log Dividend Yield (dotted blue), MEF Log Earnings-Price (dashed blue), MAI Credit Rating (dotted green), MAI Gross Domestic Product (solid green), and MKT GSCP (solid red) are selected.
   \end{itemize}
     \begin{figure}[H]
         \centering
@@ -336,7 +175,7 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{Empirical Analysis (continued)}
+\begin{frame}{Methodology (continued)}
   \begin{itemize}
     \item{ Correlation heatmaps, MEF data between, 1.1.1985 and 31.12.2018.} 
   \end{itemize}
@@ -364,11 +203,10 @@
   \end{figure}
 \end{frame}
 
-\begin{frame}{Empirical Analysis (continued)}
+\begin{frame}{Methodology (continued)}
   \begin{itemize}
     \item{ Correlation heatmaps, MEF data between, 1.1.2000 and 31.12.2018}
   \end{itemize}
-
   \begin{figure}[H]
     \centering
     \begin{minipage}{0.32\textwidth}
@@ -392,43 +230,229 @@
   \end{figure}
 \end{frame}
 
+\begin{frame}{Methodology (continued)}
+  \begin{itemize}
+    \item \textbf{Model Training}
+      \begin{itemize}
+        \item Two approaches: Ridge regression and neural network models.
+        \item Linear regression uses the standard equation with gradient descent and Ridge regularization.
+        \item Neural network employs traditional feedforward architecture.
+        \item Root Mean Squared Error (RMSE) used to assess performance.
+      \end{itemize}
+    \item \textbf{Comparison and Interpretation}
+      \begin{itemize}
+        \item Comparative analysis of results from both models.
+        \item Evaluation based on RMSE for different combinations of economic data (MAI and MEF) and target variable (1-month GSPC ERP).
+        \item Daily and monthly frequencies considered.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Empirical Analysis}
+\begin{frame}{Empirical Analysis}
+  \begin{itemize}
+    \item \textbf{Data Overview}
+    \begin{itemize}
+      \item We used six datasets with their characteristics summarized in the following table:
+    \end{itemize}
+  \end{itemize}
+
+  \begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+      \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Dataset} & \textbf{\# of Variables} & \textbf{Frequency} & \textbf{Time Period} & \textbf{\# of Samples} \\ \hline
+        MEF Daily & 14 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
+        MAI Daily & 8 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
+        MKT Daily & 1 & Daily & 1985/01/02-2018/12/31 & 8523 \\ \hline
+        MEF Monthly & 14 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
+        MAI Monthly & 8 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
+        MKT Monthly & 1 & Monthly & 1985/01/31-2018/12/31 & 408 \\ \hline
+      \end{tabular}%
+    }
+    \caption{Description of Datasets used for model training.}
+    \label{tab:Datasets}
+  \end{table}
+\end{frame}
+
+\begin{frame}{Empirical Analysis (continued)}
+  \begin{itemize}
+    \item \textbf{Model Implementation: Ridge Regression Model}
+      \begin{itemize}
+        \item Implemented ridge regression using MEF and MAI data as independent variables.
+        \item Trained on four datasets: MEF monthly, MAI monthly, MEF daily, MAI daily, establishing a linear relationship with GSPC data (MKT monthly, MKT daily).
+        \item Specifications:
+          \begin{itemize}
+            \item K-fold cross-validation (5 folds) to tune hyperparameter.
+            \item Grid of tested values: [\(10^{-5}\), \(10^{-4}\), \(10^{-3}\), \(10^{-2}\), \(10^{-1}\), 1, 10, \(10^2\), \(10^3\), \(10^4\), \(10^5\)].
+            \item Train-test split: 80% - 20%.
+          \end{itemize}
+        \item Training approach:
+          \begin{itemize}
+            \item For monthly datasets (408 points), the model is trained 10 times with different splits, reporting average RMSE.
+            \item For daily datasets, the model is trained once, and RMSE is reported.
+          \end{itemize}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Empirical Analysis (continued)}
+  \begin{itemize}
+    \item \textbf{Model Implementation: Neural Network Model}
+      \begin{itemize}
+        \item Implemented a feedforward architecture with the following specifications:
+          \begin{itemize}
+            \item Two hidden layers (64 and 32 neurons).
+            \item Two dropout layers (30% and 50% dropping rate) following each hidden layer.
+            \item Single neuron output.
+            \item Adam optimizer with a learning rate of 0.01.
+            \item Batch size: 32.
+            \item Number of epochs: 10.
+          \end{itemize}
+        \item Training approach:
+          \begin{itemize}
+            \item For monthly data, the model is trained 10 times with different train-test splits, and the average RMSE is reported.
+            \item For daily data, the model is trained and predicted once.
+          \end{itemize}
+        \item Note: Meaningful results weren't expected from monthly datasets (408 points) due to limited data for efficient neural network training. However, this approach is used as a reference and for comparison with the regression model.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Empirical Analysis (continued)}
+    \begin{itemize}
+        \item \textbf{Results}
+            \begin{itemize}
+                \item The average root mean square error (RMSE) of eight different models (two types of models on four datasets) is tested on ten different random train-test splits of each dataset.
+            \end{itemize}
+    \end{itemize}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|c|c|c|}
+          \hline
+          \textbf{Model} & \textbf{Input Data} & \textbf{RMSE on Test Set} \\ \hline
+          \multirow{Linear Model} & MEF Daily & 53.243 \\ \cline{2-3} 
+          & MAI Daily & 54.677 \\ \cline{2-3} 
+          & MEF Monthly & 54.307 \\ \cline{2-3} 
+          & MAI Monthly & 53.571 \\ \hline
+          \multirow{NN Model} & MEF Daily & 54.142 \\ \cline{2-3} 
+          & MAI Daily & 54.063 \\ \cline{2-3} 
+          & MEF Monthly & 52.717 \\ \cline{2-3} 
+          & MAI Monthly & 53.096 \\ \hline
+        \end{tabular}
+        \caption{Comparison of RMSE of different models}
+        \label{tab:PerformanceResults}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Empirical Analysis (continued)}
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+      \includegraphics[width=.65\linewidth]{true_vs_pred_M_Regr.png}
+      \caption{True vs Predicted values for monthly data (Regression)}
+      \label{fig:monthly_regression}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+      \includegraphics[width=.65\linewidth]{true_vs_pred_D_Regr.png}
+      \caption{True vs Predicted values for daily data (Regression)}
+      \label{fig:daily_regression}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Empirical Analysis (continued)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.70\textwidth]{Distribution of RMSE_Linear_M.png}
+    \caption{Distribution of RMSE over iterations, linear models on monthly data.}
+    \label{fig:linear_prediction_ii}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Empirical Analysis (continued)}
+  \begin{itemize}
+    \item Distribution and boxplots of RMSE over iterations, Neural Networks
+on monthly data
+  \end{itemize}
+  \begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{Distribution of RMSE_NN_MEF_M.png}
+      \caption{MEF monthly.}
+      \label{fig:linear_prediction}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{Distribution of RMSE_NN_MAI_M.png}
+      \caption{MAI monthly.}
+      \label{fig:nn_prediction}
+    \end{minipage}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Empirical Analysis (continued)}
+  \begin{itemize}
+    \item True vs Predicted values for daily data (Neural Network)
+  \end{itemize}
+  \begin{figure}[H]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{true_vs_pred_mai_D_NN.png}
+      \caption{MEF daily.}
+      \label{fig:linear_prediction}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\linewidth]{true_vs_pred_mef_D_NN.png}
+      \caption{MAI daily.}
+      \label{fig:nn_prediction}
+    \end{minipage}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Empirical Analysis (Continued)}
+    \begin{itemize}
+            \item \textbf{Model Selection}
+            \begin{itemize}
+                \item The inefficiency of both models (Ridge Regression, Neural Network) is evident in Table 2, highlighting their inability to predict the excess annualized returns of S\&P500.
+                \item These results do not suggest a mere bad fit; rather, all models exhibit a lack of effective training and prediction within a narrow range.
+                \item Given these findings, selecting a superior-performing model becomes challenging.
+            \end{itemize}
+    \end{itemize}
+\end{frame}
+
 \section{Discussion}
 \begin{frame}{Discussion}
   \begin{itemize}
-    \item \textbf{Practical Implications} 
+    \item \textbf{Summary} 
     \begin{itemize}
-        \item Neural network models outperform linear models, and both MEF and MAI data equally impact prediction quality, challenging previous conclusions.
+        \item Study aimed to forecast ERP using regression and neural network models, incorporating MEF and MAI datasets, targeting S\&P500 excess return.
+        \item Despite utilizing data from 1985 to 2018, sourced from GitHub repositories and Yahoo Finance, predictive models showed significant deviations from established research.
     \end{itemize}
-    \item \textbf{Limitations}
+    \item \textbf{Interpretation of Results}
     \begin{itemize}
-        \item Despite superior mean RMSE for neural networks, notable variability exists.
-    \end{itemize}
-    \item \textbf{Future Research Directions}
-    \begin{itemize}
-        \item Model improvement is needed, considering the time series correlation characteristics of equity risk premia.
-        \item Exploring differences between MAI and MEF in capturing macroeconomic influences on equity risk premia can offer valuable insights into nuanced dynamics.
+        \item Lack of predictive efficacy in MAI data contradicts literature.
+        \item Limited usefulness of traditionally used MEF data in predicting stock returns (issues with data preprocessing, model complexity, or capturing relationships over a wide time frame).
+        \item  Reasons for poor model performance include weak relationships between features and the target variable, inadequate data preprocessing, inappropriate hyperparameter tuning, insufficient model complexity (especially for neural networks), and non-stationarity of statistical properties in stock returns.
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\section{Conclusion}
-\begin{frame}{Conclusion}
+\begin{frame}{Discussion (continued)}
   \begin{itemize}
-    \item \textbf{Findings}
+    \item \textbf{Summary} 
     \begin{itemize}
-        \item Neural network models outperform linear regression across datasets, offering robust predictive capabilities for real-world applications.
-        \item Eight models, including linear and neural networks, are trained on three datasets.
-    \end{itemize}     
-    \item \textbf{Limitations} 
-    \begin{itemize}
-        \item Despite neural network superiority, observed RMSE variability indicates challenges in identifying causal relationships.
+        \item Experiment with combinations of MAI and MEF features as inputs to predictive models.
+        \item Explore advanced preprocessing techniques, outlier detection methods, and strategies for handling missing data to enhance the quality of model inputs.
+        \item Conduct a comprehensive hyperparameter search to optimize model performance.
+        \item Explore more sophisticated modeling approaches beyond regression and neural networks.
+        \item Consider focusing on shorter time ranges instead of the entire dataset or implement advanced time series analysis techniques to address non-stationarity.
     \end{itemize}
-    \item \textbf{Future Research}
-      \begin{itemize}
-        \item Enhance model structure by considering time series correlation in equity risk premia.
-        \item Explore more advanced modeling, starting with neural networks and incorporating macroeconomic features.
-        \item Investigate differences in capturing macroeconomic influence between MAI and MEF.
-      \end{itemize}
   \end{itemize}
 \end{frame}
 
@@ -444,4 +468,5 @@
     \item Ma, Lu, Liu, and Huang (2022): \emph{Macroeconomic attention and stock market return predictability}
   \end{itemize}
 \end{frame}
+
 \end{document}
