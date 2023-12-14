@@ -11,10 +11,11 @@ from tensorflow import keras
 from tensorflow.keras import layers, regularizers
 from tensorflow.keras.layers import Dense, Dropout
 from keras.optimizers import Adam
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import mean_absolute_error
-from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import seaborn as sns
+import random
+from tqdm import tqdm
+import sys
 
 DATA_PATH = os.environ.get("RESEARCH_DATA_PATH")
 
@@ -62,6 +63,8 @@ def split_data(X, y, test_size, random_state):
 
 # Function: build the neural network model for MAI data
 
+# Function: build the neural network model for MAI data
+
 def train_neural_network_MAI(X, y):
     """
     Parameters:
@@ -88,15 +91,16 @@ def train_neural_network_MAI(X, y):
 
     # Train the model
     # the best number of epochs and batch_size have been selected
-    history = model.fit(X, y, epochs=10, batch_size=32, validation_split=0.2)
+    epochs = 10  # Define the number of epochs
 
-    # Plot training and validation accuracy over epochs
-    # plt.plot(history.history['loss'], label='Training MSE')
-    # plt.plot(history.history['val_loss'], label='Validation MSE')
-    # plt.xlabel('Epoch')
-    # plt.ylabel('Accuracy')
-    # plt.legend()
-    # plt.show()
+    # Suppress the verbose output of model.fit()
+    history = model.fit(X, y, epochs=epochs, batch_size=32, validation_split=0.2, verbose=0)
+
+    # Custom progress bar
+    with tqdm(total=epochs, file=sys.stdout, desc="Training Progress", bar_format='{l_bar}{bar} {n_fmt}/{total_fmt}') as pbar:
+        for epoch in range(epochs):
+            # Insert any per-epoch logic or checks if necessary
+            pbar.update(1)
 
     mse_values = history.history['loss']
     mse_values_val = history.history['val_loss']
@@ -132,18 +136,19 @@ def train_neural_network_MEF(X, y):
     # Compile the model
     # the best optimizer and learning rate have been selected
     model.compile(optimizer=Adam(learning_rate=0.0001), loss='mean_squared_error', metrics=['mae'])
-
+    
+    epochs = 10  # Define the number of epochs
+    
     # Train the model
     # the best number of epochs and batch_size have been selected
-    history = model.fit(X, y, epochs=10, batch_size=32, validation_split=0.2)
+    history = model.fit(X, y, epochs=epochs, batch_size=32, validation_split=0.2, verbose=0)
 
-    # Plot training and validation accuracy over epochs
-    # plt.plot(history.history['loss'], label='Training MSE')
-    # plt.plot(history.history['val_loss'], label='Validation MSE')
-    # plt.xlabel('Epoch')
-    # plt.ylabel('Accuracy')
-    # plt.legend()
-    # plt.show()
+    # Custom progress bar
+    with tqdm(total=epochs, file=sys.stdout, desc="Training Progress", bar_format='{l_bar}{bar} {n_fmt}/{total_fmt}') as pbar:
+        for epoch in range(epochs):
+            # Insert any per-epoch logic or checks if necessary
+            pbar.update(1)
+    
     mse_values = history.history['loss']
     mse_values_val = history.history['val_loss']
 
@@ -215,22 +220,29 @@ list_RMSE_train_train=[]
 list_RMSE_train_val=[]
 list_RMSE=[]
 
-for i in range(0,10):
-  # Generate training and test data sets
-  X_train, y_train, X_test, y_test = split_data(X_mai_m, y_mkt_m, 0.2, i)
+np.random.seed(11)
+random.seed(11)
 
-  # Use X_train and y_train as MAI features and target variable
-  trained_model, training_history, avg_RMSE_train, avg_RMSE_test = train_neural_network_MAI(X_train, y_train)
-  print('During training of this NN model, average training RMSE is', avg_RMSE_train, ', average validation RMSE is', avg_RMSE_test)
-  list_RMSE_train_train.append(avg_RMSE_train)
-  list_RMSE_train_val.append(avg_RMSE_test)
+# Use tqdm for the outer loop to track progress of iterations
+for i in tqdm(range(10), desc="Training Iterations", file=sys.stdout):
+    # Generate training and test data sets
+    X_train, y_train, X_test, y_test = split_data(X_mai_m, y_mkt_m, 0.2, i)
 
-  # Have the performance of the trained model evaluated on the test set
-  MSE, MAE, R2 = test_model(trained_model, X_test, y_test)
-  print(f'RMSE: {MSE**(1/2)}, MAE: {MAE}, R2: {R2}')
-  list_RMSE.append(MSE**(1/2))
-avg_RMSE=np.mean(list_RMSE)
-print('The average RMSE in the test set is', avg_RMSE)
+    # Train the model
+    trained_model, training_history, avg_RMSE_train, avg_RMSE_test = train_neural_network_MAI(X_train, y_train)
+    print('During training of this NN model, average training RMSE is', avg_RMSE_train, ', average validation RMSE is', avg_RMSE_test)
+    list_RMSE_train_train.append(avg_RMSE_train)
+    list_RMSE_train_val.append(avg_RMSE_test)
+
+    # Evaluate the model
+    MSE, MAE, R2 = test_model(trained_model, X_test, y_test)
+    print(f'RMSE: {MSE**(1/2)}, MAE: {MAE}, R2: {R2}')
+    list_RMSE.append(MSE**(1/2))
+
+# Calculate and print average RMSE
+avg_RMSE = np.mean(list_RMSE)
+print(' ')
+print('The average test RMSE over 10 iterations for MAI monthly data is:', avg_RMSE)
 
 
 sns.boxplot(data=[list_RMSE_train_train, list_RMSE_train_val])
@@ -253,32 +265,33 @@ plt.legend()
 
 plt.show()
 
-# Test the performance of the model on 10 different random train-test splits of MAI daily data, and report the average RMSE.
-list_RMSE_train_train1=[]
-list_RMSE_train_val1=[]
-list_RMSE1=[]
-for i in range(0,10):
-  # Generate training and test data sets
-  X_train, y_train, X_test, y_test = split_data(X_mai_d, y_mkt_d, 0.2, i)
+# Test the performance of the model on 10 different random train-test splits of MEF monthly data, and report the average RMSE.
+list_RMSE_train_train2=[]
+list_RMSE_train_val2=[]
+list_RMSE2=[]
 
-  # Use X_train and y_train as MAI features and target variable
-  trained_model, training_history, avg_RMSE_train, avg_RMSE_test = train_neural_network_MAI(X_train, y_train)
-  print('During training of this NN model, average training RMSE is', avg_RMSE_train, ', average validation RMSE is', avg_RMSE_test)
-  list_RMSE_train_train1.append(avg_RMSE_train)
-  list_RMSE_train_val1.append(avg_RMSE_test)
+np.random.seed(11)
+random.seed(11)
 
-  # Have the performance of the trained model evaluated on the test set
-  MSE, MAE, R2 = test_model(trained_model, X_test, y_test)
-  print(f'RMSE: {MSE**(1/2)}, MAE: {MAE}, R2: {R2}')
-  list_RMSE1.append(MSE**(1/2))
-avg_RMSE1=np.mean(list_RMSE1)
-print('The average RMSE is', avg_RMSE1)
+# Use tqdm for the outer loop to track progress of iterations
+for i in tqdm(range(10), desc="Training Iterations", file=sys.stdout):
+    # Generate training and test data sets
+    X_train, y_train, X_test, y_test = split_data(X_mef_m, y_mkt_m, 0.2, i)
 
+    # Use X_train and y_train as MAI features and target variable
+    trained_model, training_history, avg_RMSE_train, avg_RMSE_test = train_neural_network_MEF(X_train, y_train)
+    print('During training of this NN model, average training RMSE is', avg_RMSE_train, ', average validation RMSE is', avg_RMSE_test)
+    list_RMSE_train_train2.append(avg_RMSE_train)
+    list_RMSE_train_val2.append(avg_RMSE_test)
 
-sns.boxplot(data=[list_RMSE_train_train1, list_RMSE_train_val1])
-plt.xticks([0, 1], ['Train', 'Test'])
-plt.ylabel('RMSE')
-plt.title('Distribution of RMSE over Iterations (MAI daily training data)')
+    # Have the performance of the trained model evaluated on the test set
+    MSE, MAE, R2 = test_model(trained_model, X_test, y_test)
+    print(f'RMSE: {MSE**(1/2)}, MAE: {MAE}, R2: {R2}')
+    list_RMSE2.append(MSE**(1/2))
+avg_RMSE2=np.mean(list_RMSE2)
+print(' ')
+print('The average test RMSE over 10 iterations for MEF monthly data is:', avg_RMSE2)
+
 
 
 # Test the performance of the model on 10 different random train-test splits of MEF monthly data, and report the average RMSE.
