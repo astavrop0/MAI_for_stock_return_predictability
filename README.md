@@ -76,24 +76,20 @@ Installation
 To install the required packages for this project, follow these steps:
 
 1. Clone the repository to your local machine:
-
-  `git clone https://github.com/astavrop0/MAI_for_stock_return_predictability.git`
-
+```
+  git clone https://github.com/astavrop0/MAI_for_stock_return_predictability.git
+```
 2. Navigate to the cloned repository directory:
-
-  `cd MAI_for_stock_return_predictability`
-
+```
+  cd MAI_for_stock_return_predictability
+```
 3. Install the required packages using pip:
-
-  `pip install -r requirements.txt`
-
+```
+  pip install -r requirements.txt
+```
   This will install all the Python packages listed in `requirements.txt`.
-
-```
-pip install -r requirements.txt
 ```
 
- 
 Resources
 ------------
 
