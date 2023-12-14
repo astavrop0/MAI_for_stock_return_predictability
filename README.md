@@ -92,7 +92,6 @@ To install the required packages for this project, follow these steps:
   pip install -r requirements.txt
 ```
   This will install all the Python packages listed in `requirements.txt`.
-```
 
 Resources
 ------------
