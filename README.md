@@ -47,23 +47,23 @@ Project Organization
 Description of Steps 
 ------------
 
-- Preparation of  a folder structure, using the cookiecutter Data Science template
+- Preparing of a folder structure, using the cookiecutter Data Science template
 
-- Downloaded of raw data [see below]
+- Downloading raw data [see below]
 
-- Create upstream and downstream functions
+- Creating upstream and downstream functions
 
-- Generation of tables which can be directly imported to Latex 
+- Generating tables which can be directly imported to Latex 
 
-- Connect Overleaf to Github (all Overleaf Files can be directly accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c))
+- Connecting Overleaf to Github (all Overleaf Files can be directly accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c))
 
-- Use R Shiny and Plotly to create interactive graphs in order to do robustness checks - data frequency, data features, date range, visualization - (app can be directly accessed [here](https://baumender11.shinyapps.io/Alpha/))
+- Creating an interactive app in Shiny For R to perform robustness checks - data frequency, data features, date range, visualization - (app can be directly accessed [here](https://baumender11.shinyapps.io/Alpha/))
 
-- Ensure reproducibility by adding Dockerfile 
+- Ensuring reproducibility by adding Dockerfile 
 
-- Analysis and interpretation of findings
+- Analysing and interpreting findings
 
-- Compare results with current research
+- Comparing results with current research
 
 Data 
 ------------
