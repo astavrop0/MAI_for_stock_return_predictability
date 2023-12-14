@@ -1,11 +1,11 @@
 MAI_for_stock_return_predictability
 ==============================
 
-We conduct forecasts for equity risk premia utilizing linear and neural network models trained on sets of macroeconomic factors and macroeconomic attention indices. The macroeconomic factors set comprises the 14 features recommended in previous works by Goyal and Welch (2008). The set of macro attention indices includes the eight features constructed by Fisher et al. (2022). Equity risk premia represent the annualized excess return of the one-month S&P 500 index over the prevailing risk-free rate, approximated by the yield on short-term Treasury Bills. 
+We conduct forecasts for equity risk premia utilizing linear and neural network models trained on sets of macroeconomic factors and macroeconomic attention indices. The macroeconomic factors set comprises the 14 features recommended in previous works by Goyal and Welch (2008). The set of macro attention indices includes the eight features constructed by Fisher et al. (2022). Equity risk premia represent the annualized excess return of the one-month S&P500 index over the prevailing risk-free rate, approximated by the yield on short-term Treasury Bills. 
 
-Our analysis is based on datasets published in other Github repository and Yahoo Finance (see below), with focus on the period between 1985 and 2018, given the availability of the combined data.
+Our analysis is based on datasets published in other Github repositories and Yahoo Finance (see below), with focus on the period between 1985 and 2018, given the availability of the combined data. We provide an [interactive app](https://baumender11.shinyapps.io/Alpha/) for the user to undertake robustness checks of the data.
 
-Our results deviate from previous research, suggesting the need for further investigation into the datasets.
+Our results of our prediction models deviate from previous research, suggesting the need for further investigation into the datasets.
 
 Project Organization
 ------------
@@ -68,11 +68,11 @@ Description of Steps
 Data 
 ------------
 
-Macroeconomic Attention Indices (MAI) data are obtained from [charlesmartineau/mai_rfs](https://github.com/charlesmartineau/mai_rfs) Github repository.
+Macroeconomic Factors (MEF) data is obtained from the [powder197/Goyal-and-Welch-2008-](https://github.com/powder197/Goyal-and-Welch-2008-/tree/master) Github repository.
 
-MEF data are obtained from the [powder197/Goyal-and-Welch-2008-](https://github.com/powder197/Goyal-and-Welch-2008-/tree/master) Github repository.
+Macro Attention Indices (MAI) data is obtained from [charlesmartineau/mai_rfs](https://github.com/charlesmartineau/mai_rfs) Github repository.
 
-S&P500 proces are obtained from [Yahoo Finance](https://finance.yahoo.com).
+S&P500 data is obtained from [Yahoo Finance](https://finance.yahoo.com).
 
 Installation
 ------------
