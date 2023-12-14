@@ -13,7 +13,7 @@ Project Organization
     ├── LICENSE
     ├── README.md          <- The top-level README for developers using this project
     ├── data
-    │   ├── interim        <- Intermediate data that has been initially edited (missing values, drop useless data)
+    │   ├── interim        <- Intermediate data (filled missing values, droped useless features, ...)
     │   ├── processed      <- The final, canonical data sets for modeling (further transformations)
     │   └── raw            <- The original, immutable data dump
     │
