@@ -13,30 +13,30 @@ Project Organization
     ├── LICENSE
     ├── README.md          <- The top-level README for developers using this project
     ├── data
-    │   ├── interim        <- Intermediate data (filled missing values, droped useless features, ...)
+    │   ├── interim        <- Intermediate data (filled missing values, droped useless features)
     │   ├── processed      <- The final, canonical data sets for modeling (further transformations)
     │   └── raw            <- The original, immutable data dump
     │
-    ├── notebooks          <- Jupyter notebooks
+    ├── notebooks              <- Jupyter notebooks
     │
-    ├── reports            <- Generated analysis as PDF and LaTeX report and beamer presentation
-    │   └── figures        <- Generated graphics and figures to be used in reporting as .png
+    ├── reports                <- Generated analysis as PDF and LaTeX report and beamer presentation
+    │   └── figures            <- Generated graphics and figures to be used in reporting as .png
     │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment
+    ├── requirements.txt       <- The requirements file for reproducing the analysis environment
     │
-    ├── Dockerfile         <- Defines the Docker container configuration to run the analysis
+    ├── Dockerfile             <- Defines the Docker container configuration to run the analysis
     │
-    └── src                <- Source code for use in this project
-        ├── __init__.py    <- Makes src a Python module
+    └── src                    <- Source code for use in this project
+        ├── __init__.py        <- Makes src a Python module
         │
-        ├── data           <- Scripts to turn raw data into features for modeling
+        ├── data               <- Scripts to turn raw data into features for modeling
         │   └── make_dataset.py
         │
-        ├── models         <- Scripts to train evaluate models             
+        ├── models             <- Scripts to train evaluate models             
         │   ├── linear_model.py
         │   └── NN_model.py
         │
-        └── shiny          <- Code and data to create R shiny app for visualizations
+        └── shiny              <- Code and data to create R shiny app for visualizations
             ├── shiny_data
             └── stock_return_prediction_app.R
     
