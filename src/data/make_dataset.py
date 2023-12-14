@@ -1,6 +1,5 @@
 import os
 import pandas as pd
-import numpy as np
 import warnings
 
 # Get the path to the data folder from the environment variable
@@ -11,6 +10,7 @@ if DATA_PATH is not None:
 
     mai_daily_data = pd.read_csv(f'{DATA_PATH}/raw/mai_daily_data_raw.csv')
     mai_monthly_data = pd.read_csv(f'{DATA_PATH}/raw/mai_monthly_data_raw.csv')
+    mef_daily_data = pd.read_csv(f'{DATA_PATH}/raw/mef_daily_data_raw.csv')
     mef_monthly_data = pd.read_csv(f'{DATA_PATH}/raw/mef_monthly_data_raw.csv')
     mkt_daily_data = pd.read_csv(f'{DATA_PATH}/raw/mkt_daily_data_raw.csv')
     mkt_monthly_data = pd.read_csv(f'{DATA_PATH}/raw/mkt_monthly_data_raw.csv')
@@ -23,34 +23,10 @@ else:
 #Set date as index column
 mai_daily_data.set_index('date', inplace=True)
 mai_monthly_data.set_index('date', inplace=True)
+mef_daily_data.set_index('date', inplace=True)
 mef_monthly_data.set_index('date', inplace=True)
 mkt_daily_data.set_index('date', inplace=True)
-mkt_monthly_data.set_index('date', inplace=True)    
-
-
-#This function creates a table showing the total number of values, the number of missing values and the percentage of missing values
-
-def missing(mai_dataframe):
-    warnings.filterwarnings('ignore')
-    missing_values = pd.DataFrame(columns=['Column', 'Total Count', 'Missing values', '% of missing values'])
-
-    # Iterate through each column in the DataFrame
-    for column in mai_dataframe.columns:
-        total_count = mai_dataframe[column].count()  # Total number of non-NA/null entries
-        zero_count = (mai_dataframe[column] == 0).sum()  # Count of zeros
-        percentage_zeros = (zero_count / total_count) * 100  # Percentage of zeros
-
-        # Append the results to the DataFrame
-        missing_values = missing_values.append({
-            'Column': column,
-            'Total Count': total_count,
-            'Missing values': zero_count,
-            '% of missing values': percentage_zeros
-        }, ignore_index=True)
-
-    # Print the results
-    print(missing_values)
-    warnings.filterwarnings('default')
+mkt_monthly_data.set_index('date', inplace=True)
 
 
 column_bases = ['credit_rating', 'gdp', 'house_mkt', 'inflation', 'monetary', 'oil', 'unemp', 'usd']
@@ -91,9 +67,36 @@ mai_daily_data.fillna(method='ffill', inplace=True)
 mai_monthly_data.replace(0, pd.NA, inplace=True)
 mai_monthly_data.fillna(method='ffill', inplace=True)
 
+
 mai_daily_data.to_csv(f'{DATA_PATH}/interim/mai_daily_data_interim.csv', index=True)
 mai_monthly_data.to_csv(f'{DATA_PATH}/interim/mai_monthly_data_interim.csv', index=True)
 
+# Calculate the number of missing values in each column
+missing_values_count_mef_monthly = mef_monthly_data.isna().sum()
+missing_values_count_mef_daily = mef_daily_data.isna().sum()
+
+# Print the number of missing values for each column
+print("Number of missing values in MEF monthly dataset:")
+print(missing_values_count_mef_monthly)
+print(" ")
+
+print("Number of missing values in MEF daily dataset:")
+print(missing_values_count_mef_daily)
+
+mef_daily_data.to_csv(f'{DATA_PATH}/interim/mef_daily_data_interim.csv', index=True)
+mef_monthly_data.to_csv(f'{DATA_PATH}/interim/mef_monthly_data_interim.csv', index=True)
+
+
+missing_values_count_mkt_monthly = mkt_monthly_data.isna().sum()
+missing_values_count_mkt_daily = mkt_daily_data.isna().sum()
+
+# Print the number of missing values for each column
+print("Number of missing values in MKT monthly dataset:")
+print(missing_values_count_mkt_monthly)
+print(" ")
+
+print("Number of missing values in MKT daily dataset:")
+print(missing_values_count_mkt_daily)
 
 # Drop the specified columns in the daily market dataset
 columns_to_drop_daily = ['lag_GSPC_1', 'lead_GSPC_2', 'lag_rfr_1', 'lag_date_1', 'lead_date_2']
@@ -103,9 +106,12 @@ mkt_daily_data = mkt_daily_data.drop(columns=columns_to_drop_daily)
 columns_to_drop_monthly = ['lag_GSPC_1', 'lag_rfr_1', 'lag_date_1']
 mkt_monthly_data = mkt_monthly_data.drop(columns=columns_to_drop_monthly)
 
-mef_monthly_data.to_csv(f'{DATA_PATH}/interim/mef_monthly_data_interim.csv', index=True)
+
 mkt_daily_data.to_csv(f'{DATA_PATH}/interim/mkt_daily_data_interim.csv', index=True)
 mkt_monthly_data.to_csv(f'{DATA_PATH}/interim/mkt_monthly_data_interim.csv', index=True)
+
+
+#INTERIM TO PROCESSED
 
 #Transforms MAI data from interim to processed
 def mai_interim_to_processed(input_file, output_file):
@@ -128,9 +134,9 @@ def mai_interim_to_processed(input_file, output_file):
     # Save the new DataFrame to a new CSV file
     new_df.to_csv(output_file, index=True)
 
-
 mai_interim_to_processed(f'{DATA_PATH}/interim/mai_daily_data_interim.csv', f'{DATA_PATH}/processed/mai_daily_data_processed.csv')
-mai_interim_to_processed(f'{DATA_PATH}/interim/mai_monthly_data_interim.csv', f'{DATA_PATH}/processed/mai_monthly_data_processed.csv')   
+mai_interim_to_processed(f'{DATA_PATH}/interim/mai_monthly_data_interim.csv', f'{DATA_PATH}/processed/mai_monthly_data_processed.csv')
+
 
 #Transforms MEF data from interim to processed
 def mef_interim_to_processed(input_file, output_file):
@@ -155,6 +161,7 @@ def mef_interim_to_processed(input_file, output_file):
 
 
 mef_interim_to_processed(f'{DATA_PATH}/interim/mef_monthly_data_interim.csv', f'{DATA_PATH}/processed/mef_monthly_data_processed.csv')
+mef_interim_to_processed(f'{DATA_PATH}/interim/mef_daily_data_interim.csv', f'{DATA_PATH}/processed/mef_daily_data_processed.csv')
 
 def mkt_interim_to_processed(input_file, output_file):
     # Load the original CSV file
@@ -177,9 +184,6 @@ def mkt_interim_to_processed(input_file, output_file):
 
 
 mkt_interim_to_processed(f'{DATA_PATH}/interim/mkt_daily_data_interim.csv', f'{DATA_PATH}/processed/mkt_daily_data_processed.csv')
-mkt_interim_to_processed(f'{DATA_PATH}/interim/mkt_monthly_data_interim.csv', f'{DATA_PATH}/processed/mkt_monthly_data_processed.csv')
-
-
-
+mkt_interim_to_processed(f'{DATA_PATH}/interim/mkt_monthly_data_interim.csv', f'{DATA_PATH}/processed/mkt_monthly_data_processed.csv')    
 
 
