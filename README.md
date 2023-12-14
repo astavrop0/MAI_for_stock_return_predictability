@@ -99,13 +99,11 @@ Running with Docker
 This project can be easily set up and run using Docker. Follow the steps below to build and run the project inside a Docker container.
 
 ### Prerequisites
-- Ensure you have [Docker installed](https://docs.docker.com/get-docker/) on your machine.
+1. Ensure you have [Docker installed](https://docs.docker.com/get-docker/) on your machine.
 
 2. Navigate to the cloned repository's directory:
 
 3. Build the Docker image. Replace `your-image-name` with a name of your choice for the Docker image:
-```
-  pip install -r requirements.txt
 ```
 docker build -t your-image-name .
 ```
