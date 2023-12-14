@@ -47,7 +47,7 @@ Project Organization
 Description of Steps 
 ------------
 
-- Preparing of a folder structure, using the cookiecutter Data Science template
+- Preparing a folder structure using the cookiecutter Data Science template
 
 - Downloading raw data [see below]
 
