@@ -118,19 +118,19 @@ docker run your-image-name
 Resources
 ------------
 
-Eugene F. Fama, Kenneth R. French, Dividend yields and expected stock returns, Journal of Financial Economics, Volume 22, Issue 1, 1988, Pages 3-25, ISSN 0304-405X (document can be directly accessed [here](https://www.sciencedirect.com/science/article/pii/0304405X88900207))
+[1](https://www.sciencedirect.com/science/article/pii/0304405X88900207) Eugene F. Fama, Kenneth R. French, Dividend yields and expected stock returns, Journal of Financial Economics, Volume 22, Issue 1, 1988, Pages 3-25, ISSN 0304-405X
 
-Goyal, Amit, and Ivo Welch. “Predicting the Equity Premium with Dividend Ratios.” Management Science, vol. 49, no. 5, 2003, pp. 639–54. JSTOR (document can be directly accessed [here](https://www.jstor.org/stable/4133989))
+[2](https://www.jstor.org/stable/4133989) Goyal, Amit, and Ivo Welch. “Predicting the Equity Premium with Dividend Ratios.” Management Science, vol. 49, no. 5, 2003, pp. 639–54. JSTOR
 
-Andrew W. Lo & Manish Singh (2023) Deep-learning models for forecasting financial risk premia and their interpretations, Quantitative Finance, 23:6, 917-929 (document can be directly accessed [here](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2203844))
+[3](https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2203844) Andrew W. Lo & Manish Singh (2023) Deep-learning models for forecasting financial risk premia and their interpretations, Quantitative Finance, 23:6, 917-929
 
-Shihao Gu, Bryan Kelly, Dacheng Xiu, Empirical Asset Pricing via Machine Learning, The Review of Financial Studies, Volume 33, Issue 5, May 2020, Pages 2223–2273 (document can be directly accessed [here](https://dachxiu.chicagobooth.edu/download/ML.pdf))
+[4](https://dachxiu.chicagobooth.edu/download/ML.pdf) Shihao Gu, Bryan Kelly, Dacheng Xiu, Empirical Asset Pricing via Machine Learning, The Review of Financial Studies, Volume 33, Issue 5, May 2020, Pages 2223–2273
 
-Andrei, Daniel and Hasler, Michael, Investor Attention and Stock Market Volatility (June 3, 2013). The Review of Financial Studies, 2015 (document can be directly accessed [here](https://www.epfl.ch/labs/cfi/wp-content/uploads/2018/08/WP757_A2.pdf))
+[5](https://www.epfl.ch/labs/cfi/wp-content/uploads/2018/08/WP757_A2.pdf) Andrei, Daniel and Hasler, Michael, Investor Attention and Stock Market Volatility (June 3, 2013). The Review of Financial Studies, 2015
 
-Jussi Nikkinen, Mohammed Omran, Petri Sahlström, Janne Äijö, Global stock market reactions to scheduled U.S. macroeconomic news announcements, Global Finance Journal, Volume 17, Issue 1, 2006, Pages 92-104, ISSN 1044-0283 (document can be directly accessed [here](https://www.sciencedirect.com/science/article/pii/S104402830600024X))
+[6](https://www.sciencedirect.com/science/article/pii/S104402830600024X) Jussi Nikkinen, Mohammed Omran, Petri Sahlström, Janne Äijö, Global stock market reactions to scheduled U.S. macroeconomic news announcements, Global Finance Journal, Volume 17, Issue 1, 2006, Pages 92-104, ISSN 1044-0283
 
-Feng Ma, Xinjie Lu, Jia Liu, Dengshi Huang, Macroeconomic attention and stock market return predictability, Journal of International Financial Markets, Institutions and Money, Volume 79, 2022, 101603, ISSN 1042-4431 (document can be directly accessed [here](https://doi.org/10.1016/j.intfin.2022.101603))
+[7](https://doi.org/10.1016/j.intfin.2022.101603) Feng Ma, Xinjie Lu, Jia Liu, Dengshi Huang, Macroeconomic attention and stock market return predictability, Journal of International Financial Markets, Institutions and Money, Volume 79, 2022, 101603, ISSN 1042-4431
 
 
 Contributors
