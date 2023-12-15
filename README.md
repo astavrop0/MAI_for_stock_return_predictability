@@ -33,12 +33,12 @@ Project Organization
         │   └── make_dataset.py
         │
         ├── models                 <- Scripts to train evaluate models             
-        │   ├── linear_model.py
+        │   ├── regression_model.py
         │   └── NN_model.py
         │
         └── shiny                  <- Code and data to create R shiny app for visualizations
             ├── shiny_data
-            └── stock_return_prediction_app.R
+            └── app.R
     
 Description of Steps 
 ------------
@@ -49,7 +49,7 @@ Description of Steps
 
 - Preprocess and save data as features ready to be used for modelling
 
-- Creating an interactive app in Shiny For R to perform robustness checks - data frequency, data features, date range, visualization - (app can be directly accessed [here](https://baumender11.shinyapps.io/Alpha/))
+- Create an interactive app in Shiny For R to perform robustness checks - data frequency, data features, date range, visualization - (app can be directly accessed [here](https://baumender11.shinyapps.io/Alpha/))
 
 - Build models (ridge regression, neural network), train and evaluate them 
 
