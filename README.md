@@ -21,6 +21,7 @@ Project Organization
     │
     ├── reports                    <- Generated analysis as PDF and LaTeX report and beamer presentation
     │   └── figures                <- Generated graphics and figures to be used in reporting as .png
+    │   └── tables                 <- Generated tables to be used in reporting as .tex
     │
     ├── requirements.txt           <- The requirements file for reproducing the analysis environment
     │

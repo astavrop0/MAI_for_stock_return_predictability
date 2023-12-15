@@ -1,0 +1,17 @@
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|}
+  \hline
+  \textbf{Model} & \textbf{Input Data} & \textbf{RMSE on Test Set} \\ \hline
+  \multirow{4}{*}{Ridge Model} & MEF Daily & 53.243 \\ \cline{2-3} 
+   & MAI Daily & 54.677 \\ \cline{2-3} 
+   & MEF Monthly & 54.307 \\ \cline{2-3} 
+   & MAI Monthly & 53.571 \\ \hline
+  \multirow{4}{*}{NN Model} & MEF Daily & 54.142 \\ \cline{2-3} 
+   & MAI Daily & 54.066 \\ \cline{2-3} 
+   & MEF Monthly & 52.717 \\ \cline{2-3} 
+   & MAI Monthly & 53.096 \\ \hline
+  \end{tabular}
+  \caption{Comparison of RMSE of different models.}
+  \label{tab:RMSE}
+  \end{table}
