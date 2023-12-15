@@ -51,7 +51,7 @@ Description of Steps
 
 - Generating tables which can be directly imported to Latex 
 
-- Connecting Overleaf to Github (all Overleaf Files can be directly accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c))
+- Connecting Overleaf to Github (report can be accessed [here](https://www.overleaf.com/read/yqkhbqjwvtbs#b7cd7c), beamer presentation can be accessed [here](https://www.overleaf.com/read/hvngdthxhprd#c75379))
 
 - Creating an interactive app in Shiny For R to perform robustness checks - data frequency, data features, date range, visualization - (app can be directly accessed [here](https://baumender11.shinyapps.io/Alpha/))
 
