@@ -46,7 +46,7 @@ Description of Steps
 
 - Prepare folder structure, using the cookiecutter Data Science template
 
-- Download raw data [see below]
+- Download raw data (see below)
 
 - Preprocess and save data as features ready to be used for modelling
 
