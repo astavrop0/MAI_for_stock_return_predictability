@@ -1,5 +1,8 @@
+#RAW TO INTERIM
+
 import os
 import pandas as pd
+import numpy as np
 import warnings
 
 # Get the path to the data folder from the environment variable
@@ -71,32 +74,10 @@ mai_monthly_data.fillna(method='ffill', inplace=True)
 mai_daily_data.to_csv(f'{DATA_PATH}/interim/mai_daily_data_interim.csv', index=True)
 mai_monthly_data.to_csv(f'{DATA_PATH}/interim/mai_monthly_data_interim.csv', index=True)
 
-# Calculate the number of missing values in each column
-missing_values_count_mef_monthly = mef_monthly_data.isna().sum()
-missing_values_count_mef_daily = mef_daily_data.isna().sum()
-
-# Print the number of missing values for each column
-print("Number of missing values in MEF monthly dataset:")
-print(missing_values_count_mef_monthly)
-print(" ")
-
-print("Number of missing values in MEF daily dataset:")
-print(missing_values_count_mef_daily)
 
 mef_daily_data.to_csv(f'{DATA_PATH}/interim/mef_daily_data_interim.csv', index=True)
 mef_monthly_data.to_csv(f'{DATA_PATH}/interim/mef_monthly_data_interim.csv', index=True)
 
-
-missing_values_count_mkt_monthly = mkt_monthly_data.isna().sum()
-missing_values_count_mkt_daily = mkt_daily_data.isna().sum()
-
-# Print the number of missing values for each column
-print("Number of missing values in MKT monthly dataset:")
-print(missing_values_count_mkt_monthly)
-print(" ")
-
-print("Number of missing values in MKT daily dataset:")
-print(missing_values_count_mkt_daily)
 
 # Drop the specified columns in the daily market dataset
 columns_to_drop_daily = ['lag_GSPC_1', 'lead_GSPC_2', 'lag_rfr_1', 'lag_date_1', 'lead_date_2']
