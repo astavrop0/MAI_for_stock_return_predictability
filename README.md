@@ -32,7 +32,7 @@ Project Organization
         ├── data                   <- Scripts to turn raw data into features for modeling
         │   └── make_dataset.py
         │
-        ├── models                 <- Scripts to train evaluate models             
+        ├── models                 <- Scripts to train and evaluate models             
         │   ├── regression_model.py
         │   └── NN_model.py
         │
