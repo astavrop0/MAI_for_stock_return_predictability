@@ -9,7 +9,7 @@ Our results of our prediction models deviate from previous research, suggesting 
 
 Project Organization
 ------------
-
+```
     ├── LICENSE
     ├── README.md                  <- The top-level README for developers using this project
     ├── data
@@ -46,7 +46,7 @@ Project Organization
     │       ├── regression_model.py
     │       └── NN_model.py
     
-  
+ ``` 
   
 Description of Steps 
 ------------
