@@ -31,6 +31,11 @@ Project Organization
     │
     ├── Dockerfile                 <- Defines the Docker container configuration to run the analysis
     │
+    │
+    └── shiny                      <- Code and data to create R shiny app for visualizations
+        ├── shiny_data
+        └── app.R   
+
     ├── src                        <- Source code for use in this project
     │   ├── __init__.py            <- Makes src a Python module
     │   │
@@ -40,10 +45,7 @@ Project Organization
     │   └── models                 <- Scripts to train and evaluate models             
     │       ├── regression_model.py
     │       └── NN_model.py
-    │
-    └── shiny                      <- Code and data to create R shiny app for visualizations
-        ├── shiny_data
-        └── app.R   
+    
   
   
 Description of Steps 
