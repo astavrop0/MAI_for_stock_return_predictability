@@ -44,7 +44,8 @@ Project Organization
     └── shiny                      <- Code and data to create R shiny app for visualizations
         ├── shiny_data
         └── app.R   
-    
+  
+  
 Description of Steps 
 ------------
 
