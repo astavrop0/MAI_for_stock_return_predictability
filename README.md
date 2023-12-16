@@ -17,7 +17,7 @@ Project Organization
     │   ├── processed              <- The final, canonical data sets for modeling (further transformations)
     │   └── raw                    <- The original, immutable data dump
     │
-    ├── notebooks                  <- Jupyter notebooks
+    ├── notebooks                  <- Jupyter notebooks with codes to transform data and implement models
     │   └── Data_raw_to_interim.ipynb
     │   └── Data_interim_to_processed.ipynb
     │   └── RegressionModel.ipynb 
