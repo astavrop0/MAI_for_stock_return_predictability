@@ -23,7 +23,7 @@ Aligned with the pitfalls our analysis indicated, further steps for researching 
 
 • Conducting a more extensive hyperparameter search and exploring more sophisticated modeling approaches.
 
-• Focusing on shorter time ranges instead of the entire dataset or employing more advanced time series analysis techniques to address non-stationarity.
+• Considering shorter time spans or applying advanced time series analysis techniques to address non-stationarity.
 
 Project Organization
 ------------
