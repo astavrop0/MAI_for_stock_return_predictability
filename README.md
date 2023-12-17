@@ -5,7 +5,17 @@ We conduct forecasts for equity risk premia utilizing regression and neural netw
 
 Our analysis is based on datasets published in other Github repositories and Yahoo Finance (see below), with focus on the period between 1985 and 2018, given the availability of the combined data. We provide an [interactive app](https://baumender11.shinyapps.io/Alpha/) for the user to undertake robustness checks and visualizations of the data.
 
-Our results of our prediction models deviate from previous research, suggesting the need for further investigation into the datasets.
+The outcomes of our prediction models deviate from previous research, suggesting the need for further investigation. More specifically, the results of our predictive modeling efforts showed a noticeable divergence from established research, revealing significant prediction errors. This indicates that the models were unable to adequately capture the complexity of the financial data. Potential reasons for the poor performance of the models include:
+• Inadequate feature selection (i.e., features without a strong relationship with the target variable).
+• Insufficient data preprocessing, such as mishandling missing values or neglecting outliers.
+• Inappropriate hyperparameter tuning or insufficient model complexity.
+• Unsuitable assumptions about the stationarity properties of the data.
+
+Aligned with the pitfalls our analysis indicated, further steps for researching the predictive power of MEF and MAI data include:
+• Experimenting with combinations of MAI and MEF features as inputs to the predictive models.
+• Exploring advanced preprocessing techniques, outlier detection methods, and different ways to handle missing data to improve model inputs.
+• Conducting a more extensive hyperparameter search and exploring more sophisticated modeling approaches.
+• Focusing on shorter time ranges instead of the entire dataset or employing more advanced time series analysis techniques to address non-stationarity.
 
 Project Organization
 ------------
