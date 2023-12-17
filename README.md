@@ -19,7 +19,7 @@ Aligned with the pitfalls our analysis indicated, further steps for researching 
 
 • Experimenting with combinations of MAI and MEF features as inputs to the predictive models.
 
-• Exploring advanced preprocessing techniques, outlier detection methods, and different ways to handle missing data to improve model inputs.
+• Exploring advanced preprocessing techniques, outlier detection methods, and handling missing data to improve model inputs.
 
 • Conducting a more extensive hyperparameter search and exploring more sophisticated modeling approaches.
 
