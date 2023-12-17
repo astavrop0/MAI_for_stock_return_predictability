@@ -143,10 +143,12 @@ The MKT (annualized excess returns) datasets (monthly and daily) consist of the 
 - `date`: Date
 - `GSPCprem`: Equity Risk Premia
 
+A detailed description of all the features can be found in the report.
+
 Installation
 ------------
 
-To install the required packages nd replicate this project, follow these steps:
+To install the required packages and replicate this project, follow these steps:
 
 1. Clone the repository to your local machine:
 ```
