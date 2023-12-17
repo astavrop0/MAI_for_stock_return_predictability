@@ -74,11 +74,56 @@ Description of Steps
 Data 
 ------------
 
+### Sources
+
 Macroeconomic Factors (MEF) data is obtained from the [powder197/Goyal-and-Welch-2008-](https://github.com/powder197/Goyal-and-Welch-2008-/tree/master) Github repository.
 
 Macro Attention Indices (MAI) data is obtained from [charlesmartineau/mai_rfs](https://github.com/charlesmartineau/mai_rfs) Github repository.
 
 S&P500 data is obtained from [Yahoo Finance](https://finance.yahoo.com).
+
+### Description
+
+In the file `data/processed` you can find the processed/final datasets we use for our analysis (for detailed description of how we construct them from the raw data look at the report and notebooks `Data_raw_to_interim.ipynb` and `Data_interim_to_processed.ipynb`). All the datasets include data for the time period 1985-2018 and can be split into two groups according to their frequency:
+
+- __Monthly__ (408 data points): `mai_monthly_data_processed.csv`, `mef_monthly_data_processed.csv`, `mkt_monthly_data_processed.csv`. These datasets include monthly data for indices, factors and stock returns (see below)
+
+- __Daily__ (8523 data ponts): `mai_daily_data_processed.csv`, `mef_daily_data_processed.csv`, `mkt_dail_data_processed.csv`. These datasets include daily data for the same indices, factors and stock returns (see below)
+
+The MAI (Macroeconomic Attention Indices) datasets (monthly and daily) consist of the following columns:
+
+- `date`: Date
+- `credit_rating`: Credit Rating
+- `gdp`: Gross Domestic Product
+- `house_mkt`: House Market
+- `inflation`: Inflation
+- `monetary`: Monetary
+- `oil`: Oil
+- `unemp`: Unemployment Rate
+- `usd`: US Dollar
+
+The MEF (Macroeconomic Factors) datasets (monthly and daily) consist of the following columns:
+
+- `date`: Date
+- `dp`: Log Dividend Price
+- `dy`: Log Dividend-Yield
+- `ep`: Log Earnings-Price
+- `de`: Log Dividend-Payout
+- `rvol`: Equity Premium Vol
+- `bm`: Book-to-Market
+- `ntis`: Net Equity Expansion
+- `tbl`: Treasury Bill Rate
+- `lty`: Long-Term Yield
+- `ltr`: Long-Term Return
+- `tms`: Term Spread
+- `dfy`: Default Yield Spread
+- `dfr`: Default Return Spread
+- `infl`: Inflation
+
+The MKT (annualized excess returns) datasets (monthly and daily) consist of the following columns:
+
+- `date`: Date
+- `GSPCprem`: Equity Risk Premia
 
 Installation
 ------------
