@@ -108,7 +108,7 @@ In the file `data/processed` you can find the processed/final datasets we use fo
 
 - __Daily__ (8523 data ponts): `mai_daily_data_processed.csv`, `mef_daily_data_processed.csv`, `mkt_dail_data_processed.csv`. These datasets include daily data for the same indices, factors and stock returns (see below)
 
-The MAI (Macroeconomic Attention Indices) datasets (monthly and daily) consist of the following columns:
+The __MAI (Macroeconomic Attention Indices)__ datasets (monthly and daily) consist of the following columns:
 
 - `date`: Date
 - `credit_rating`: Credit Rating
@@ -120,7 +120,7 @@ The MAI (Macroeconomic Attention Indices) datasets (monthly and daily) consist o
 - `unemp`: Unemployment Rate
 - `usd`: US Dollar
 
-The MEF (Macroeconomic Factors) datasets (monthly and daily) consist of the following columns:
+The __MEF (Macroeconomic Factors)__ datasets (monthly and daily) consist of the following columns:
 
 - `date`: Date
 - `dp`: Log Dividend Price
@@ -138,7 +138,7 @@ The MEF (Macroeconomic Factors) datasets (monthly and daily) consist of the foll
 - `dfr`: Default Return Spread
 - `infl`: Inflation
 
-The MKT (annualized excess returns) datasets (monthly and daily) consist of the following columns:
+The __MKT (annualized excess returns)__ datasets (monthly and daily) consist of the following columns:
 
 - `date`: Date
 - `GSPCprem`: Equity Risk Premia
