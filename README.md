@@ -32,7 +32,7 @@ Project Organization
     ├── README.md                <- The top-level README for developers using this project
     ├── data
     │   ├── interim              <- Intermediate data (filled missing values, droped useless features)
-    │   ├── processed            <- The final, canonical data sets for modeling (further transformations)
+    │   ├── processed            <- The final, canonical data sets for modeling (after transformations)
     │   └── raw                  <- The original, immutable data dump
     │
     ├── notebooks                <- Jupyter notebooks with codes to transform data and implement models
