@@ -145,6 +145,25 @@ The __MKT (annualized excess returns)__ datasets (monthly and daily) consist of 
 
 A detailed description of all the features can be found in the report.
 
+Notebooks 
+------------
+
+### Data_raw_to_interim.ipynb
+
+The code in this notebook starts with the raw data, checks for missing values, fills them appropriately, and then saves the processed data in the "data/interim" file.
+
+### Data_interim_to_processed.ipynb
+
+The code in this notebook begins with the interim data, performs the necessary transformations as described in the report, and saves the final datasets in the "data/processed" folder.
+
+### RegressionModel.ipynb
+
+The code in this notebook implements Ridge Regression using MEF and MAI data with daily and monthly frequencies to predict the one-month GSPC ERP.
+
+### NeuralNetworkModel.ipynb
+
+The code in this notebook implements a Feedforward Neural Network using MEF and MAI data with daily and monthly frequencies to predict the one-month GSPC ERP.
+
 Installation
 ------------
 
