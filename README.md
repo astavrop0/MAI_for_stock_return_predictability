@@ -154,7 +154,7 @@ The code in this notebook starts with the raw data, checks for missing values, f
 
 ### Data_interim_to_processed.ipynb
 
-The code in this notebook begins with the interim data, performs the necessary transformations as described in the report, and saves the final datasets in the "data/processed" folder.
+The code in this notebook begins with the interim data, performs the necessary transformations as described in the report, and saves the final datasets in the "data/processed" file.
 
 ### RegressionModel.ipynb
 
