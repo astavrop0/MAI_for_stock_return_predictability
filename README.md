@@ -94,11 +94,13 @@ Data
 
 ### Sources
 
-Macroeconomic Factors (MEF) data is obtained from the [powder197/Goyal-and-Welch-2008-](https://github.com/powder197/Goyal-and-Welch-2008-/tree/master) Github repository.
+- Monthly Macroeconomic Factors (MEF) data are obtained from the [powder197/Goyal-and-Welch-2008-](https://github.com/powder197/Goyal-and-Welch-2008-/tree/master) Github repository.
 
-Macro Attention Indices (MAI) data is obtained from [charlesmartineau/mai_rfs](https://github.com/charlesmartineau/mai_rfs) Github repository.
+- Daily Macroeconomic Factors (MEF) data are implied by the monthly data and were constructed by us using assumptions and basic transformations that can be found in detail in the report. 
 
-S&P500 data is obtained from [Yahoo Finance](https://finance.yahoo.com).
+- Monthly and daily Macro Attention Indices (MAI) data are obtained from [charlesmartineau/mai_rfs](https://github.com/charlesmartineau/mai_rfs) Github repository.
+
+- Monthly and daily S&P500 data are obtained from [Yahoo Finance](https://finance.yahoo.com).
 
 ### Description
 
@@ -158,14 +160,15 @@ The code in this notebook begins with the interim data, performs the necessary t
 
 ### RegressionModel.ipynb
 
-The code in this notebook implements Ridge Regression using MEF and MAI data with daily and monthly frequencies to predict the one-month GSPC ERP.
+The code in this notebook implements Ridge Regression using MEF and MAI data with daily and monthly frequencies to predict the one-month GSPC equity risk premia.
 
 ### NeuralNetworkModel.ipynb
 
-The code in this notebook implements a Feedforward Neural Network using MEF and MAI data with daily and monthly frequencies to predict the one-month GSPC ERP.
+The code in this notebook implements a Feedforward Neural Network using MEF and MAI data with daily and monthly frequencies to predict the one-month GSPC equity risk premia.
 
 Installation
 ------------
+The project was tested with `Python 3.9.13`. To ensure compatibility and reproducibility, make sure you have any version `Python 3.9.x` installed.
 
 To install the required packages and replicate this project, follow these steps:
 
