@@ -229,7 +229,7 @@ Resources
 Contributors
 ------------
 
-Aaron Arauz Baumender (@Baumender11), Michael Geiser (@mikegeiser), Andreas Stavropoulos (@astavrop0), Zhiyi Tang (@sukotzy)
+Andreas Stavropoulos ([@astavrop0](https://github.com/astavrop0)), Michael Geiser ([@mikegeiser](https://github.com/mikegeiser)), Aaron Arauz Baumender ([@Baumender11](https://github.com/Baumender11)),   Zhiyi Tang ([@sukotzy](https://github.com/sukotzy))
 
 --------
 
