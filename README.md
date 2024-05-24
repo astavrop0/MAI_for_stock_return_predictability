@@ -1,4 +1,4 @@
-MAI_for_stock_return_predictability
+MAI for stock return predictability
 ==============================
 
 We conduct forecasts for equity risk premia utilizing regression and neural network models trained on sets of macroeconomic factors (MEF) and macroeconomic attention indices (MAI). The macroeconomic factors set comprises the 14 features recommended in previous works by Goyal and Welch (2008). The set of macro attention indices includes the eight features constructed by Fisher et al. (2022). Equity risk premia represent the annualized excess return of the one-month S&P500 index over the prevailing risk-free rate, approximated by the yield on short-term Treasury Bills. 
